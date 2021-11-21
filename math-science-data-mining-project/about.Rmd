@@ -1,5 +1,0 @@
----
-title: "About"
----
-
-This project is a requirement for our CSC-402's Thesis
