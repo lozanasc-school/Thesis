@@ -1,12 +1,8 @@
 ---
 title: "Analyzing Performance of Students in Math and Sciences"
 ---
-
-Quick brown fox jumps over the lazy dog
+Exploratory Graphics
 
 ```{r}
-
-x <- 10
-x
 
 ```
