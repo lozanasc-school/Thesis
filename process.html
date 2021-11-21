@@ -351,17 +351,33 @@ dim(stud_perf_2018)</code></pre>
 <div id="visual-exploratory-analysis" class="section level1">
 <h1>Visual Exploratory Analysis</h1>
 <hr />
+<div id="grabbing-math-and-science-scores-and-assigning-them-in-variables-math_perf_2018-and-sci_perf_2018" class="section level3">
+<h3>Grabbing math and science scores and assigning them in variables math_perf_2018 and sci_perf_2018</h3>
+<pre class="r"><code>math_perf_2018 &lt;- stud_perf_2018$math
+sci_perf_2018 &lt;- stud_perf_2018$science</code></pre>
+</div>
 <div id="histogram-math" class="section level3">
 <h3>Histogram: Math</h3>
-<pre class="r"><code>math_perf_2018 &lt;- stud_perf_2018$math
-hist(math_perf_2018)</code></pre>
-<p><img src="process_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-</div>
-<div id="histogram-math-1" class="section level3">
-<h3>Histogram: Math</h3>
-<pre class="r"><code>sci_perf_2018 &lt;- stud_perf_2018$science
-hist(sci_perf_2018)</code></pre>
+<pre class="r"><code>hist(math_perf_2018)</code></pre>
 <p><img src="process_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="histogram-science" class="section level3">
+<h3>Histogram: Science</h3>
+<pre class="r"><code>hist(sci_perf_2018)</code></pre>
+<p><img src="process_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="boxplot-math" class="section level3">
+<h3>Boxplot: Math</h3>
+<pre class="r"><code>boxplot(math_perf_2018)</code></pre>
+<p><img src="process_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="boxplot-science" class="section level3">
+<h3>Boxplot: Science</h3>
+<pre class="r"><code>boxplot(sci_perf_2018)</code></pre>
+<p><img src="process_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div id="note-somethings-wrong-with-some-of-the-data-will-fix." class="section level5">
+<h5>NOTE: somethings wrong with some of the data, will fix. 😅</h5>
+</div>
 </div>
 </div>
 

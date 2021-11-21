@@ -1,8 +1,6 @@
 ---
 title: "Analyzing Performance of Students in Math and Sciences"
 ---
-Exploratory Graphics
-
+Result along with the interpretation will be posted here
 ```{r}
-
 ```

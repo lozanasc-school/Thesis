@@ -80,5 +80,5 @@ boxplot(math_perf_2018)
 boxplot(sci_perf_2018)
 ```
 
-##### NOTE: somethings wrong with some of the data, please fix. 😅
+##### NOTE: somethings wrong with some of the data, will fix. 😅
 
