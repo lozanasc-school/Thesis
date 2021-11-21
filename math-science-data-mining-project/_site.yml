@@ -1,0 +1,10 @@
+name: "Analyzing student's Math and Science Performance"
+navbar:
+  title: "Thesis"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Process"
+      href: process.html
