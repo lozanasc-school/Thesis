@@ -60,9 +60,13 @@ colnames(stud_perf_2018)
 
 #### Here's the overall summary statistic for all the columns in stud_perf_2018 data-set:
 ```{r}
+# Assigning some variables
 overall_sum <- summary(stud_perf_2018)
 math_sum <- summary(stud_perf_2018$math)
 science_sum <- summary(stud_perf_2018$science)
+
+# Overall
+overall_sum
 ```
 
 #### Math and Science statistic summaries:
