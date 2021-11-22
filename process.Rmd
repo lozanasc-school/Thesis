@@ -2,7 +2,7 @@
 title: "Process"
 ---
 
-Importing necessary packages for this project:  
+#### Importing necessary packages for this project:  
 
 About the *learningtower* package:  
 The Programme for International Student Assessment (PISA) is a global study conducted by the Organization for Economic Cooperation and Development (OECD) in member and non-member countries to assess educational systems by assessing 15-year-old school students academic performance in mathematics, science, and reading. This datasets contains information on their scores and other socioeconomic characteristics, information about their school and its infrastructure, as well as the countries that are taking part in the program.
@@ -17,68 +17,95 @@ A fast, consistent tool for working with data frame like objects, both in memory
 library(dplyr)
 ```
 
-About the *tidyr* package:
+About the *tidyr* package:  
 Tools to help to create tidy data, where each column is a variable, each row is an observation, and each cell contains a single value. 'tidyr' contains tools for changing the shape (pivoting) and hierarchy (nesting and 'unnesting') of a dataset, turning deeply nested lists into rectangular data frames ('rectangling'), and extracting values out of string columns. It also includes tools for working with missing values (both implicit and explicit).
-```{r}
+```{r setup, include=FALSE}
 library(tidyr)
 ```
 
-Loading PISA 2018 result data-set  
+About the *reactable* package:  
+Interactive data tables for R, based on the 'React Table' JavaScript library. Provides an HTML widget that can be used in 'R Markdown' documents and 'Shiny' applications, or viewed from an R console.
+```{r message=FALSE}
+library(reactable)
+```
+
+###### *Do note that some of the rows are omitted due to the sheer size of the data frame*
+
+#### Loading PISA 2018 result data-set  
+
 ```{r message=FALSE}
 # We'll be naming the data frame stud_perf_2018
 stud_perf_2018 <- load_student(2018)
 # Since we only wanted to grab the PISA 2018 result we passed 2018 as argument to the load_student function provided by the learningtower package
 ```
 
-Here's a table view of the entire PISA 2018 data-set:
+#### Here's a table view of the entire PISA 2018 data-set:
 ```{r}
-stud_perf_2018
+reactable(stud_perf_2018)
 ```
 
-Here's some information about the data-set
+#### Here's some information about the data-set
 ```{r}
 # The class of our data
 class(stud_perf_2018)
 
 # Total number of rows and columns in the stud_perf_2018 dataset
 dim(stud_perf_2018)
-
 ```
 
-Here's the summary statistic for all the columns in stud_perf_2018 data-set:
+#### Here's the different column names in the data-set
 ```{r}
-summary(stud_perf_2018)
+colnames(stud_perf_2018)
 ```
 
-# Visual Exploratory Analysis
+#### Here's the overall summary statistic for all the columns in stud_perf_2018 data-set:
+```{r}
+overall_sum <- summary(stud_perf_2018)
+math_sum <- summary(stud_perf_2018$math)
+science_sum <- summary(stud_perf_2018$science)
+```
+
+#### Math and Science statistic summaries:
+```{r}
+# Mathematics
+math_sum
+
+# Science
+science_sum
+```
+  
+## Visual Exploratory Analysis
 ***
 
-### Grabbing math and science scores and assigning them in variables math_perf_2018 and sci_perf_2018
+#### Extracting math and science scores and assigning them in variables math_perf_2018 and sci_perf_2018
 ```{r}
 math_perf_2018 <- stud_perf_2018$math
 sci_perf_2018 <- stud_perf_2018$science
 ```
 
 
-### Histogram: Math
+#### Histogram: Math
 ```{r}
 hist(math_perf_2018)
 ```
 
-### Histogram: Science
+#### Histogram: Science
 ```{r}
 hist(sci_perf_2018)
 ```
 
-### Boxplot: Math
+#### Boxplot: Math
 ```{r}
 boxplot(math_perf_2018)
 ```
 
-### Boxplot: Science
+#### Boxplot: Science
 ```{r}
 boxplot(sci_perf_2018)
 ```
 
-##### NOTE: somethings wrong with some of the data, will fix. 😅
+***
+
+## Data Cleaning
+###### Will do this later today 😅
 
