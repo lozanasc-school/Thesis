@@ -19,7 +19,7 @@ library(dplyr)
 
 About the *tidyr* package:  
 Tools to help to create tidy data, where each column is a variable, each row is an observation, and each cell contains a single value. 'tidyr' contains tools for changing the shape (pivoting) and hierarchy (nesting and 'unnesting') of a dataset, turning deeply nested lists into rectangular data frames ('rectangling'), and extracting values out of string columns. It also includes tools for working with missing values (both implicit and explicit).
-```{r setup, include=FALSE}
+```{r message=FALSE}
 library(tidyr)
 ```
 
@@ -31,7 +31,7 @@ library(reactable)
 
 ###### *Do note that some of the rows are omitted due to the sheer size of the data frame*
 
-#### Loading PISA 2018 result data-set  
+#### Loading PISA 2018 result dataset  
 
 ```{r message=FALSE}
 # We'll be naming the data frame stud_perf_2018
@@ -39,12 +39,16 @@ stud_perf_2018 <- load_student(2018)
 # Since we only wanted to grab the PISA 2018 result we passed 2018 as argument to the load_student function provided by the learningtower package
 ```
 
-#### Here's a table view of the entire PISA 2018 data-set:
+#### Here's a table view of the entire PISA 2018 dataset:
 ```{r}
-reactable(stud_perf_2018)
+# RESERVED FOR FINAL
+# DO NOT UNCOMMENT YET!
+# reactable(stud_perf_2018)
+
+stud_perf_2018
 ```
 
-#### Here's some information about the data-set
+#### Here's some information about the dataset
 ```{r}
 # The class of our data
 class(stud_perf_2018)
@@ -53,12 +57,12 @@ class(stud_perf_2018)
 dim(stud_perf_2018)
 ```
 
-#### Here's the different column names in the data-set
+#### Here's the different columns in the dataset
 ```{r}
-colnames(stud_perf_2018)
+table(colnames(stud_perf_2018))
 ```
 
-#### Here's the overall summary statistic for all the columns in stud_perf_2018 data-set:
+#### Here's the overall summary statistic for all the columns in stud_perf_2018 dataset:
 ```{r}
 # Assigning some variables
 overall_sum <- summary(stud_perf_2018)
@@ -111,5 +115,8 @@ boxplot(sci_perf_2018)
 ***
 
 ## Data Cleaning
-###### Will do this later today 😅
+
+#### Renaming column names
+The dataset has 
+
 

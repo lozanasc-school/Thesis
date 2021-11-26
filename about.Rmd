@@ -2,4 +2,16 @@
 title: "About"
 ---
 
-This project is a requirement for our CSC-402's Thesis
+##### *This project is a requirement for our CSC-402's Thesis*
+***
+## Members:
+
+<img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t1.6435-1/p240x240/139392336_418892576224145_5310675899331781647_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=7206a8&_nc_eui2=AeGejb9w6Z297umGg5FZN47pcfqoSpUhwitx-qhKlSHCK8VSke4p76vTBThCmwKLp5KaLZAx3R83urVQmFYHdsYc&_nc_ohc=wgIK5MlWxQUAX-WPLv4&_nc_oc=AQl44EcbYPANmy5pUYcKeFDbY9VFA9vFPkb4l9fZpa0_Cg4WMmxcmwK0uR52emGAWhzoO_wU_CotHYCHlVhKG5Cv&tn=6uNaLGm6UHSz9E1L&_nc_ht=scontent.fcrk4-1.fna&oh=71430f3417b64a57b0157b4b6d748572&oe=61C10683" height="128" width="128" />  
+
+
+### Sean Christian Lozana
+
+<img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/241383945_2948107622106629_3655074792479416142_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_eui2=AeFhBd42QN2E-TBmbsmfnjTztZvac3Au_O21m9pzcC787Tx738wUaQND6WFU10fd3CvvucQm9UAvgyhzZIXoK66p&_nc_ohc=86TB7c0r8sIAX_vWl3l&tn=6uNaLGm6UHSz9E1L&_nc_ht=scontent.fceb2-2.fna&oh=e3f0f4451280b8625cb41d90371333d5&oe=61A17B46" height="128" width="128" />  
+
+
+### Justine Mae Torres
