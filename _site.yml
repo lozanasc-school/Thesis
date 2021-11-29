@@ -1,6 +1,6 @@
 name: "Analyzing student's Math and Science Performance"
 navbar:
-  title: "Thesis"
+  title: "🎓 CSC402 - Thesis"
   left:
     - text: "Result"
       href: index.html
