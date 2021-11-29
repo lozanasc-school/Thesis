@@ -29,6 +29,10 @@ Interactive data tables for R, based on the 'React Table' JavaScript library. Pr
 library(reactable)
 ```
 
+```{r message=FALSE}
+library(writexl)
+```
+
 ###### *Do note that some of the rows are omitted due to the sheer size of the data frame*
 
 #### Loading PISA 2018 result dataset  
@@ -116,7 +120,9 @@ boxplot(sci_perf_2018)
 
 ## Data Cleaning
 
-#### Renaming column names
-The dataset has 
+##### TODO:
+- [ ] Test
 
-
+##### Renaming all colums to upper case
+```{r} message=FALSE
+```

@@ -237,7 +237,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Thesis</a>
+      <a class="navbar-brand" href="index.html">🎓 CSC402 - Thesis</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -281,6 +281,7 @@ Tools to help to create tidy data, where each column is a variable, each row is 
 <p>About the <em>reactable</em> package:<br />
 Interactive data tables for R, based on the ‘React Table’ JavaScript library. Provides an HTML widget that can be used in ‘R Markdown’ documents and ‘Shiny’ applications, or viewed from an R console.</p>
 <pre class="r"><code>library(reactable)</code></pre>
+<pre class="r"><code>library(writexl)</code></pre>
 <div id="do-note-that-some-of-the-rows-are-omitted-due-to-the-sheer-size-of-the-data-frame" class="section level6">
 <h6><em>Do note that some of the rows are omitted due to the sheer size of the data frame</em></h6>
 </div>
@@ -410,30 +411,37 @@ sci_perf_2018 &lt;- stud_perf_2018$science</code></pre>
 <div id="histogram-math" class="section level4">
 <h4>Histogram: Math</h4>
 <pre class="r"><code>hist(math_perf_2018)</code></pre>
-<p><img src="process_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="process_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="histogram-science" class="section level4">
 <h4>Histogram: Science</h4>
 <pre class="r"><code>hist(sci_perf_2018)</code></pre>
-<p><img src="process_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="process_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="boxplot-math" class="section level4">
 <h4>Boxplot: Math</h4>
 <pre class="r"><code>boxplot(math_perf_2018)</code></pre>
-<p><img src="process_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="process_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <div id="boxplot-science" class="section level4">
 <h4>Boxplot: Science</h4>
 <pre class="r"><code>boxplot(sci_perf_2018)</code></pre>
-<p><img src="process_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="process_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <hr />
 </div>
 </div>
 <div id="data-cleaning" class="section level2">
 <h2>Data Cleaning</h2>
-<div id="renaming-column-names" class="section level4">
-<h4>Renaming column names</h4>
-<p>The dataset has</p>
+<div id="todo" class="section level5">
+<h5>TODO:</h5>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Test</li>
+</ul>
+</div>
+<div id="renaming-all-colums-to-upper-case" class="section level5">
+<h5>Renaming all colums to upper case</h5>
+<p><code>{r} message=FALSE</code></p>
 </div>
 </div>
 
