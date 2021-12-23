@@ -31,6 +31,7 @@ library(reactable)
 
 ```{r message=FALSE}
 library(writexl)
+library(factoextra)
 ```
 
 ###### *Do note that some of the rows are omitted due to the sheer size of the data frame*
@@ -156,6 +157,7 @@ Getting only significant columns from the data-set
  EDU_FATHER<-stud_perf_2018$father_educ
  MATH <- stud_perf_2018$math
  SCIENCE <- stud_perf_2018$science
+ WEALTH <- stud_perf_2018$wealth
  
  
  
@@ -173,12 +175,14 @@ Getting only significant columns from the data-set
    HAS_COMPUTER,
    HAS_INTERNET,
    EDU_FATHER,
-   EDU_MOTHER
+   EDU_MOTHER,
+   WEALTH
    )
  
  student_grades = data.frame(
    ID,
    COUNTRY,
+   WEALTH,
    MATH,
    SCIENCE
  )
@@ -191,9 +195,9 @@ Getting only significant columns from the data-set
  # It is important to note that we removed the HAS_DISHWASHER column since it basically had nothing but padded NA values so we didn't include it in the new student_profile
  
  # Student Profile Table
- reactable(clean_df)
+ # reactable(clean_df)
  # Student Grades
- reactable(clean_grade_df)
+ # reactable(clean_grade_df)
  
  
  # Summarizing new clean_student_profile data frame
@@ -207,6 +211,7 @@ h_computer_sum <- summary(clean_df$HAS_COMPUTER)
 h_internet_sum <- summary(clean_df$HAS_INTERNET)
 father_sum <- summary(clean_df$EDU_FATHER)
 mother_sum <- summary(clean_df$EDU_MOTHER)
+wealth_sum <- summary(clean_df$WEALTH)
  
  # Output:
 
@@ -220,5 +225,41 @@ h_internet_sum
 father_sum
 mother_sum
  
- 
+```
+
+## Setting up for K-Means Algorithm Testing
+
+```{r message=FALSE}
+# Initializing Data
+# Random sampling of Data
+sampled_clean_grade_df <- sample_n(clean_grade_df, 100)
+sampled_clean_grade_df.MATH <- sampled_clean_grade_df$MATH
+table(sampled_clean_grade_df.MATH)
+
+# Excluding Factor observations
+grade_data <- sampled_clean_grade_df[3:4]
+
+# Scaling Data
+grade_data_scale <- scale(grade_data)
+
+# Calculating Distance (Euclidean)
+grade_data <- dist(grade_data_scale)
+
+# Calculating number of Clusters needed
+fviz_nbclust(grade_data_scale, kmeans, method="wss") + labs(subtitle = "Elbow method")
+
+```
+
+## K-Means Algorithm Testing
+```{r}
+
+km.out <- kmeans(grade_data_scale, centers = 3, nstart = 100)
+print(km.out)
+
+km.clusters <- km.out$cluster
+rownames(grade_data_scale) <- paste(sampled_clean_grade_df$COUNTRY, 1:dim(sampled_clean_grade_df)[1], sep = '_')
+
+# Visualizing the Cluster
+fviz_cluster(list(data=grade_data_scale, cluster = km.clusters))
+
 ```
