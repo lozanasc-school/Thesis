@@ -138,6 +138,7 @@ boxplot(sci_perf_2018)
 # Separating Student Profile and Student Performance
 
 ### Cleaning Student's Profile:
+Getting only significant columns from the data-set
 
 ```{r message=FALSE}
  ID<-stud_perf_2018$student_id
@@ -153,6 +154,8 @@ boxplot(sci_perf_2018)
  HAS_INTERNET<-stud_perf_2018$internet
  EDU_MOTHER<-stud_perf_2018$mother_educ
  EDU_FATHER<-stud_perf_2018$father_educ
+ MATH <- stud_perf_2018$math
+ SCIENCE <- stud_perf_2018$science
  
  
  
@@ -173,21 +176,49 @@ boxplot(sci_perf_2018)
    EDU_MOTHER
    )
  
+ student_grades = data.frame(
+   ID,
+   COUNTRY,
+   MATH,
+   SCIENCE
+ )
+ 
  # Eliminate rows with missing values from the entire student_profile dataframe and creating a new data frame
  
- clean_student_profile<-na.omit(student_profile)
+ clean_df<-na.omit(student_profile)
+ clean_grade_df<-na.omit(student_grades)
  
- # It is important to note that we removed the HAS_DISHWASHER column since it basically had nothing but NA values so we didn't include it in the new student_profile
+ # It is important to note that we removed the HAS_DISHWASHER column since it basically had nothing but padded NA values so we didn't include it in the new student_profile
  
+ # Student Profile Table
+ reactable(clean_df)
+ # Student Grades
+ reactable(clean_grade_df)
  
- clean_student_profile
  
  # Summarizing new clean_student_profile data frame
  
- clean_overall_sum <- summary(clean_student_profile)
+gender_sum <- summary(clean_df$GENDER)
+computer_sum <-summary(clean_df$N_COMPUTER)
+tv_sum <- summary(clean_df$N_TV)
+h_room_sum <- summary(clean_df$HAS_ROOM)
+h_desk_sum <- summary(clean_df$HAS_DESK)
+h_computer_sum <- summary(clean_df$HAS_COMPUTER)
+h_internet_sum <- summary(clean_df$HAS_INTERNET)
+father_sum <- summary(clean_df$EDU_FATHER)
+mother_sum <- summary(clean_df$EDU_MOTHER)
  
  # Output:
- clean_overall_sum
+
+gender_sum
+computer_sum
+tv_sum
+h_room_sum
+h_desk_sum
+h_computer_sum
+h_internet_sum
+father_sum
+mother_sum
  
  
 ```
