@@ -183,6 +183,7 @@ Getting only significant columns from the data-set
    ID,
    COUNTRY,
    WEALTH,
+   N_COMPUTER,
    MATH,
    SCIENCE
  )
@@ -231,13 +232,14 @@ mother_sum
 
 ```{r message=FALSE}
 # Initializing Data
-# Random sampling of Data
-sampled_clean_grade_df <- sample_n(clean_grade_df, 100)
+# Random sampling of Data from clean_grade dataframe
+# Since my computer couldn't handle 500k+ data
+sampled_clean_grade_df <- sample_n(clean_grade_df, 5000)
 sampled_clean_grade_df.MATH <- sampled_clean_grade_df$MATH
 table(sampled_clean_grade_df.MATH)
 
 # Excluding Factor observations
-grade_data <- sampled_clean_grade_df[3:4]
+grade_data <- sampled_clean_grade_df[5:6]
 
 # Scaling Data
 grade_data_scale <- scale(grade_data)
