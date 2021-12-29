@@ -1,0 +1,15 @@
+name: "Analyzing Student's Performance and Math and Science"
+navbar:
+  title: "🎓 CSC402 - Thesis"
+  left:
+    - text: "Result"
+      href: index.html
+    - text: "Process"
+      href: process.html
+    - text: "Members"
+      href: about.html
+  right:
+    - text: Repository
+      href: https://github.com/lozanasc-school/Thesis
+
+output_dir: "."

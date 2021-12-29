@@ -1,0 +1,5 @@
+---
+title: "Members"
+---
+* Justin Mae Torres - Researcher and Encoder
+* Sean Christian Lozana - Developer
