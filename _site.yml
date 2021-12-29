@@ -13,3 +13,7 @@ navbar:
       href: https://github.com/lozanasc-school/Thesis
 
 output_dir: "."
+output:
+    html_document:
+      theme: sandstone
+      highlight: tango

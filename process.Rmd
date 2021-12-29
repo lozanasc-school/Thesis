@@ -1,7 +1,176 @@
 ---
 title: "Process"
 ---
+
 <div class="alert alert-danger" role="alert">
-  <strong> NOTE: </strong> TESTING
+  <strong> NOTE: </strong> Testing data for K-Means Clustering 🧪🧪🧪
 </div>
 
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#dependency-imports">Dependencies</a></li>
+    <li><a href="#importing-pisa-2018-data">Importing Data</a></li>
+    <li><a href="#exploring-the-data">Data Exploration</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+<hr/>
+
+### Dependency Imports
+```{r message=FALSE}
+library(learningtower)
+library(dplyr)
+library(tidyr)
+library(factoextra)
+library(reactable)
+```
+
+<hr/>
+
+### Importing PISA 2018 Data
+```{r message=FALSE}
+
+# Loading the PISA 2018 data and assigning it to variable PISA_2018
+PISA_2018 <- load_student(2018)
+
+# Sampling 10 observations from the data set for showing example
+PISA_2018_SAMPLE <- sample_n(PISA_2018, 10)
+
+# Output of the sample
+reactable(PISA_2018_SAMPLE, 
+  searchable = TRUE,
+  striped = TRUE,
+  highlight = TRUE,
+  bordered = TRUE,
+  theme = reactableTheme(
+    borderColor = "#dfe2e5",
+    stripedColor = "#f6f8fa",
+    highlightColor = "#f0f5f9",
+    cellPadding = "8px 12px"))
+```
+
+#### PISA 2018 Data Format
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Variable Name</th>
+      <th>Variable Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>year</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>school_id</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>student_id</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>mother_educ</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>father_educ</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>computer</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>internet</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>math</td>
+      <td>Numeric</td>
+    </tr>
+    <tr>
+      <td>science</td>
+      <td>Numeric</td>
+    </tr>
+    <tr>
+      <td>read</td>
+      <td>Numeric</td>
+    </tr>
+    <tr>
+      <td>stu_wgt</td>
+      <td>Numeric</td>
+    </tr>
+    <tr>
+      <td>desk</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>room</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>dishwasher</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>television</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>computer_n</td>
+      <td>Factor</td>
+    </tr>
+    <tr>
+      <td>car</td>
+      <td>Factor</td>
+    </tr>
+  <tbody>
+</table>
+
+<hr/>
+
+### Exploring the Data 
+
+```{r message=FALSE}
+# Class of the data
+class(PISA_2018)
+
+# Total number of rows and columns in the data set
+dim(PISA_2018)
+```
+
+<table class="table table-hover">
+  <tr>
+    <th>
+      Class
+    </th>
+    <th>
+      Dimension
+    </th>
+  </tr>
+  <tr>
+    <td align="center">
+      data.frame
+    </td>
+    <td align="center">
+      612004 Observations
+      <br/>
+      22 Variables
+    </td>
+  </tr>
+</table>
