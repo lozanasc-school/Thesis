@@ -12,8 +12,8 @@ title: "Process"
     <li><a href="#dependency-imports">Dependencies</a></li>
     <li><a href="#importing-pisa-2018-data">Importing Data</a></li>
     <li><a href="#exploring-the-data">Data Exploration</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#data-cleaning">Data Cleaning</a></li>
+    <li><a href="#data-rocessing">Data Preprocessing</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -32,12 +32,12 @@ library(reactable)
 <hr/>
 
 ### Importing PISA 2018 Data
-```{r message=FALSE}
+```{r message=FALSE, cache.lazy=TRUE}
 
 # Loading the PISA 2018 data and assigning it to variable PISA_2018
 PISA_2018 <- load_student(2018)
 
-# Sampling 10 observations from the data set for showing example
+# Sampling 10 observations from the data-set for showing example
 PISA_2018_SAMPLE <- sample_n(PISA_2018, 10)
 
 # Output of the sample
@@ -55,6 +55,9 @@ reactable(PISA_2018_SAMPLE,
 
 #### PISA 2018 Data Format
 
+<div class="alert alert-info" role="alert">
+  <strong> Total Number of Observations: </strong> 612,004 in the year 2018 alone
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -150,7 +153,7 @@ reactable(PISA_2018_SAMPLE,
 # Class of the data
 class(PISA_2018)
 
-# Total number of rows and columns in the data set
+# Total number of rows and columns in the data-set
 dim(PISA_2018)
 ```
 
@@ -174,3 +177,210 @@ dim(PISA_2018)
     </td>
   </tr>
 </table>
+
+#### Summary Statistics of the Data-set
+```{r message=FALSE}
+# Mathematics summary Stats
+MATH_STAT_2018 <- summary(PISA_2018$math)
+```
+
+<table class="table table-hover">
+  <tr>
+    <th>
+      Mininum
+    </th>
+    <th>
+      1st Quarter
+    </th>
+    <th>
+      Median
+    </th>
+    <th>
+      Mean
+    </th>
+    <th>
+      3rd Quarter
+    </th>
+    <th>
+      Max
+    </th>
+    <th>
+      Missing
+    </th>
+  </tr>
+  <tr>
+    <td align="center">
+      24.74
+    </td>
+    <td align="center">
+      386.66
+    </td>
+    <td align="center">
+      460.66
+    </td>
+    <td align="center">
+      461.22
+    </td>
+    <td align="center">
+      535.28
+    </td>
+    <td align="center">
+      888.06
+    </td>
+    <td align="center">
+      5377
+    </td>
+  </tr>
+</table>
+
+```{r message=FALSE}
+# Science summary Stats
+SCI_STAT_2018 <- summary(PISA_2018$science)
+```
+
+<table class="table table-hover">
+  <tr>
+    <th>
+      Mininum
+    </th>
+    <th>
+      1st Quarter
+    </th>
+    <th>
+      Median
+    </th>
+    <th>
+      Mean
+    </th>
+    <th>
+      3rd Quarter
+    </th>
+    <th>
+      Max
+    </th>
+    <th>
+      Missing
+    </th>
+  </tr>
+  <tr>
+    <td align="center">
+      58.74
+    </td>
+    <td align="center">
+      385.60
+    </td>
+    <td align="center">
+      458.20
+    </td>
+    <td align="center">
+      460.69
+    </td>
+    <td align="center">
+      533.44
+    </td>
+    <td align="center">
+      886.08
+    </td>
+    <td align="center">
+      5377
+    </td>
+  </tr>
+</table>
+```{r message=FALSE}
+  PISA_MATH_2018 <- PISA_2018$math
+  hist(PISA_MATH_2018, 
+       main = paste("Histogram of", "PISA 2018 Mathematics Performance"), 
+       col="#3e3f3a")
+```
+
+<div class="alert alert-info" role="alert">
+  <strong> Distribution: </strong> Normal
+</div>
+
+```{r message=FALSE}
+  PISA_SCI_2018 <- PISA_2018$science
+  hist(PISA_SCI_2018, 
+       main = paste("Histogram of", "PISA 2018 Science Performance"),
+       col = "#3e3f3a")
+```
+
+<div class="alert alert-info" role="alert">
+  <strong> Distribution: </strong> Normal
+</div>
+
+```{r message=FALSE}
+  boxplot(na.omit(PISA_MATH_2018), col="#3e3f3a")
+```
+
+```{r message=FALSE}
+  boxplot(na.omit(PISA_SCI_2018), col="#3e3f3a")
+```
+
+#### Summary Statistics of the remaining Variables 
+
+```{r echo=FALSE, message=FALSE}
+  OVERALL_STAT <- summary(PISA_2018)
+  OVERALL_STAT
+```
+
+### Data Cleaning
+
+#### To-do's:
+- [x] Renaming all columns to UPPERCASE and shorten its name
+- [x] Omit NA values from all columns
+- [x] Rebuilding new student profile
+
+```{r message=FALSE}
+
+# Renaming columns to UPPERCASE
+CNT <- PISA_2018$country
+SCH_ID <- PISA_2018$school_id
+STU_ID <- PISA_2018$country
+MOTHER_ED <- PISA_2018$mother_educ
+FATHER_ED <- PISA_2018$father_educ
+GENDER <- PISA_2018$gender
+COMPUTER <- PISA_2018$computer
+INTERNET <- PISA_2018$internet
+MATH <- PISA_2018$math
+SCIENCE <- PISA_2018$science
+STU_WGT <- PISA_2018$stu_wgt
+DESK <- PISA_2018$desk
+NO_TV <- PISA_2018$television
+NO_COMPUTER <- PISA_2018$computer_n
+NO_CAR <- PISA_2018$car
+NO_BOOK <- PISA_2018$book
+WEALTH <- PISA_2018$wealth
+ESCS <- PISA_2018$escs
+
+# Rebuilding new student profile
+# Invoking na.omit to remove missing values from the data-set
+STUDENT_PROFILE_2018 = na.omit(data.frame(
+  CNT,
+  SCH_ID,
+  STU_ID,
+  MOTHER_ED,
+  FATHER_ED,
+  GENDER,
+  COMPUTER,
+  INTERNET,
+  MATH,
+  SCIENCE,
+  STU_WGT,
+  DESK,
+  NO_TV,
+  NO_COMPUTER,
+  NO_CAR,
+  NO_BOOK,
+  WEALTH,
+  ESCS
+))
+
+# Summarizing new student profile data-set
+summary(STUDENT_PROFILE_2018)
+
+# New student profile
+SAMPLE_STUD_PROF_2018 <- sample_n(STUDENT_PROFILE_2018, 10)
+reactable(SAMPLE_STUD_PROF_2018)
+``` 
+
+### Data Processing

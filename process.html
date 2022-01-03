@@ -375,10 +375,10 @@ Table of Contents
 <a href="#exploring-the-data">Data Exploration</a>
 </li>
 <li>
-<a href="#license">License</a>
+<a href="#data-cleaning">Data Cleaning</a>
 </li>
 <li>
-<a href="#contact">Contact</a>
+<a href="#data-rocessing">Data Preprocessing</a>
 </li>
 <li>
 <a href="#acknowledgements">Acknowledgements</a>
@@ -400,7 +400,7 @@ Table of Contents
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the PISA 2018 data and assigning it to variable PISA_2018</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PISA_2018 <span class="ot">&lt;-</span> <span class="fu">load_student</span>(<span class="dv">2018</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sampling 10 observations from the data set for showing example</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sampling 10 observations from the data-set for showing example</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>PISA_2018_SAMPLE <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(PISA_2018, <span class="dv">10</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of the sample</span></span>
@@ -414,10 +414,13 @@ Table of Contents
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">stripedColor =</span> <span class="st">&quot;#f6f8fa&quot;</span>,</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">highlightColor =</span> <span class="st">&quot;#f0f5f9&quot;</span>,</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">cellPadding =</span> <span class="st">&quot;8px 12px&quot;</span>))</span></code></pre></div>
-<div id="htmlwidget-3a7cce8093f3329d3778" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3a7cce8093f3329d3778">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"year":["2018","2018","2018","2018","2018","2018","2018","2018","2018","2018"],"country":["AUS","BIH","AUS","FRA","QAT","IDN","LVA","DNK","QAT","QAT"],"school_id":["3600346","7000050","3600282","25000080","63400139","36000075","42800297","20800211","63400054","63400118"],"student_id":["3608110","7006571","3601472","25003826","63410013","36011401","42801096","20803901","63403791","63400731"],"mother_educ":["ISCED 3B, C","less than ISCED1","ISCED 3A","ISCED 3A","ISCED 2","ISCED 2","ISCED 3B, C","ISCED 2","ISCED 3A","ISCED 3B, C"],"father_educ":["ISCED 3A","ISCED 1","ISCED 3B, C","ISCED 3A","ISCED 3A","ISCED 1","ISCED 3B, C","ISCED 2","ISCED 3B, C","ISCED 3B, C"],"gender":["male","male","male","female","female","male","male","female","male","male"],"computer":["yes","yes","no","yes","yes","no",null,"yes","yes","yes"],"internet":["yes","yes","yes","yes","yes","no",null,"yes","yes","yes"],"math":[500.354,578.215,442.991,571.416,490.286,392.07,452.181,499.959,519.428,593.106],"read":[418.83,444.196,403.485,666.453,498.823,292.563,324.185,524.915,568.681,650.38],"science":[451.375,530.025,474.875,654.205,507.311,317.71,364.914,442.209,426.431,649.258],"stu_wgt":[6.03153,4.67363,16.03411,119.41613,1.0495,25.0424,2.0936,1.57246,1.26271,1.07692],"desk":["yes","yes","no","yes","yes","no",null,"yes","yes","yes"],"room":["yes","yes","yes","yes","yes","yes",null,"yes","yes","yes"],"dishwasher":[null,null,null,null,null,null,null,null,null,null],"television":["3+","1","2","1","1","1","3+","3+","2","2"],"computer_n":["3+","2","2","2","3+","0","3+","3+","3+","3+"],"car":["1",null,"2","2","1","0","3+","2","1","1"],"book":["26-100","0-10","0-10","more than 500","201-500","11-25","0-10","0-10","26-100","26-100"],"wealth":[1.1719,-1.9222,0.405,-0.3202,-0.0999,-3.1737,4.0779,0.7242,0.6095,0.5352],"escs":[-0.4489,-2.801,-1.1523,0.791,0.6248,-2.1663,1.0856,-0.687,1.0487,1.2658]},"columns":[{"accessor":"year","name":"year","type":"factor"},{"accessor":"country","name":"country","type":"factor"},{"accessor":"school_id","name":"school_id","type":"factor"},{"accessor":"student_id","name":"student_id","type":"factor"},{"accessor":"mother_educ","name":"mother_educ","type":"factor"},{"accessor":"father_educ","name":"father_educ","type":"factor"},{"accessor":"gender","name":"gender","type":"factor"},{"accessor":"computer","name":"computer","type":"factor"},{"accessor":"internet","name":"internet","type":"factor"},{"accessor":"math","name":"math","type":"numeric"},{"accessor":"read","name":"read","type":"numeric"},{"accessor":"science","name":"science","type":"numeric"},{"accessor":"stu_wgt","name":"stu_wgt","type":"numeric"},{"accessor":"desk","name":"desk","type":"factor"},{"accessor":"room","name":"room","type":"factor"},{"accessor":"dishwasher","name":"dishwasher","type":"factor"},{"accessor":"television","name":"television","type":"factor"},{"accessor":"computer_n","name":"computer_n","type":"factor"},{"accessor":"car","name":"car","type":"factor"},{"accessor":"book","name":"book","type":"factor"},{"accessor":"wealth","name":"wealth","type":"numeric"},{"accessor":"escs","name":"escs","type":"numeric"}],"searchable":true,"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"bordered":true,"striped":true,"theme":{"borderColor":"#dfe2e5","stripedColor":"#f6f8fa","highlightColor":"#f0f5f9","cellPadding":"8px 12px"},"dataKey":"48c0bef4aca1c59b50185eab0cdd8ff9","key":"48c0bef4aca1c59b50185eab0cdd8ff9"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f73bdc97309b30c2fe1f" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f73bdc97309b30c2fe1f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"year":["2018","2018","2018","2018","2018","2018","2018","2018","2018","2018"],"country":["IDN","NOR","LVA","KAZ","IDN","ARE","ISR","IRL","IDN","TUR"],"school_id":["36000376","57800132","42800118","39800325","36000082","78400187","37600053","37200017","36000203","79200151"],"student_id":["36010937","57804707","42805444","39812086","36010137","78409037","37607083","37200021","36004619","79206671"],"mother_educ":["ISCED 3A",null,"ISCED 3A","ISCED 2","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 1"],"father_educ":["ISCED 3A",null,"ISCED 3A","ISCED 2","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 1"],"gender":["male","male","female","female","female","female","male","male","female","female"],"computer":["yes","yes","yes","yes","yes","yes","no","yes","yes","yes"],"internet":["yes","yes","yes","no","yes","yes","yes","yes","yes","yes"],"math":[330.06,472.423,462.131,413.576,501.841,479.682,496.326,578.673,545.423,513.096],"read":[370.43,522.481,542.694,351.257,514.697,473.537,490.103,577.617,592.496,512.012],"science":[399.991,470.804,563.776,421.632,490.513,507.149,560.635,531.817,573.548,536.859],"stu_wgt":[19.20924,7.54651,3.24507,19.48319,49.10875,1.57143,15.72484,9.70003,36.62754,64.34221],"desk":["yes","yes","yes","yes","yes","yes","yes","yes","yes","yes"],"room":["yes","yes","yes","yes","yes","yes",null,"yes","yes","yes"],"dishwasher":[null,null,null,null,null,null,null,null,null,null],"television":["3+","3+","2","2","3+","3+","1","3+","1","2"],"computer_n":["2","3+","1","1","1","3+","2","1","3+","2"],"car":["0","2","0","2",null,"3+","2","2","1","1"],"book":["0-10","11-25","11-25","11-25","11-25","201-500","101-200","26-100","201-500","26-100"],"wealth":[-1.351,1.0759,-1.2105,-1.4279,-0.2165,1.0219,-0.3558,-0.0282,-0.4257,-1.178],"escs":[-1.123,"NA",-0.2007,-2.0772,-0.3315,-0.0581,0.9037,-0.5753,0.7214,-2.1635]},"columns":[{"accessor":"year","name":"year","type":"factor"},{"accessor":"country","name":"country","type":"factor"},{"accessor":"school_id","name":"school_id","type":"factor"},{"accessor":"student_id","name":"student_id","type":"factor"},{"accessor":"mother_educ","name":"mother_educ","type":"factor"},{"accessor":"father_educ","name":"father_educ","type":"factor"},{"accessor":"gender","name":"gender","type":"factor"},{"accessor":"computer","name":"computer","type":"factor"},{"accessor":"internet","name":"internet","type":"factor"},{"accessor":"math","name":"math","type":"numeric"},{"accessor":"read","name":"read","type":"numeric"},{"accessor":"science","name":"science","type":"numeric"},{"accessor":"stu_wgt","name":"stu_wgt","type":"numeric"},{"accessor":"desk","name":"desk","type":"factor"},{"accessor":"room","name":"room","type":"factor"},{"accessor":"dishwasher","name":"dishwasher","type":"factor"},{"accessor":"television","name":"television","type":"factor"},{"accessor":"computer_n","name":"computer_n","type":"factor"},{"accessor":"car","name":"car","type":"factor"},{"accessor":"book","name":"book","type":"factor"},{"accessor":"wealth","name":"wealth","type":"numeric"},{"accessor":"escs","name":"escs","type":"numeric"}],"searchable":true,"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"bordered":true,"striped":true,"theme":{"borderColor":"#dfe2e5","stripedColor":"#f6f8fa","highlightColor":"#f0f5f9","cellPadding":"8px 12px"},"dataKey":"3b24e8608cdefe6340f52c579ec10ae6","key":"3b24e8608cdefe6340f52c579ec10ae6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 <div id="pisa-2018-data-format" class="section level4">
 <h4>PISA 2018 Data Format</h4>
+<div class="alert alert-info" role="alert">
+<p><strong> Total Number of Observations: </strong> 612,004 in the year 2018 alone</p>
+</div>
 <table class="table table-hover">
 <thead>
 <tr>
@@ -592,7 +595,7 @@ Factor
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Class of the data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PISA_2018)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Total number of rows and columns in the data set</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Total number of rows and columns in the data-set</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(PISA_2018)</span></code></pre></div>
 <pre><code>## [1] 612004     22</code></pre>
 <table class="table table-hover">
@@ -613,6 +616,279 @@ data.frame
 </td>
 </tr>
 </table>
+<div id="summary-statistics-of-the-data-set" class="section level4">
+<h4>Summary Statistics of the Data-set</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mathematics summary Stats</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>MATH_STAT_2018 <span class="ot">&lt;-</span> <span class="fu">summary</span>(PISA_2018<span class="sc">$</span>math)</span></code></pre></div>
+<table class="table table-hover">
+<tr>
+<th>
+Mininum
+</th>
+<th>
+1st Quarter
+</th>
+<th>
+Median
+</th>
+<th>
+Mean
+</th>
+<th>
+3rd Quarter
+</th>
+<th>
+Max
+</th>
+<th>
+Missing
+</th>
+</tr>
+<tr>
+<td align="center">
+24.74
+</td>
+<td align="center">
+386.66
+</td>
+<td align="center">
+460.66
+</td>
+<td align="center">
+461.22
+</td>
+<td align="center">
+535.28
+</td>
+<td align="center">
+888.06
+</td>
+<td align="center">
+5377
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Science summary Stats</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SCI_STAT_2018 <span class="ot">&lt;-</span> <span class="fu">summary</span>(PISA_2018<span class="sc">$</span>science)</span></code></pre></div>
+<table class="table table-hover">
+<tr>
+<th>
+Mininum
+</th>
+<th>
+1st Quarter
+</th>
+<th>
+Median
+</th>
+<th>
+Mean
+</th>
+<th>
+3rd Quarter
+</th>
+<th>
+Max
+</th>
+<th>
+Missing
+</th>
+</tr>
+<tr>
+<td align="center">
+58.74
+</td>
+<td align="center">
+385.60
+</td>
+<td align="center">
+458.20
+</td>
+<td align="center">
+460.69
+</td>
+<td align="center">
+533.44
+</td>
+<td align="center">
+886.08
+</td>
+<td align="center">
+5377
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  PISA_MATH_2018 <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>math</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(PISA_MATH_2018, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Histogram of&quot;</span>, <span class="st">&quot;PISA 2018 Mathematics Performance&quot;</span>), </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="st">&quot;#3e3f3a&quot;</span>)</span></code></pre></div>
+<p><img src="process_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="alert alert-info" role="alert">
+<p><strong> Distribution: </strong> Normal</p>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  PISA_SCI_2018 <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>science</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(PISA_SCI_2018, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Histogram of&quot;</span>, <span class="st">&quot;PISA 2018 Science Performance&quot;</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;#3e3f3a&quot;</span>)</span></code></pre></div>
+<p><img src="process_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="alert alert-info" role="alert">
+<p><strong> Distribution: </strong> Normal</p>
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(<span class="fu">na.omit</span>(PISA_MATH_2018), <span class="at">col=</span><span class="st">&quot;#3e3f3a&quot;</span>)</span></code></pre></div>
+<p><img src="process_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(<span class="fu">na.omit</span>(PISA_SCI_2018), <span class="at">col=</span><span class="st">&quot;#3e3f3a&quot;</span>)</span></code></pre></div>
+<p><img src="process_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="summary-statistics-of-the-remaining-variables" class="section level4">
+<h4>Summary Statistics of the remaining Variables</h4>
+<pre><code>##    year           country          school_id         student_id    
+##  2000:     0   ESP    : 35943   63400008:   491   10000002:     1  
+##  2003:     0   CAN    : 22653   49900054:   423   10000005:     1  
+##  2006:     0   KAZ    : 19507   63400054:   349   10000006:     1  
+##  2009:     0   ARE    : 19277   49900020:   323   10000007:     1  
+##  2012:     0   AUS    : 14273   49900014:   320   10000009:     1  
+##  2015:     0   QAT    : 13828   9600014 :   314   10000010:     1  
+##  2018:612004   (Other):486523   (Other) :609784   (Other) :611998  
+##            mother_educ               father_educ        gender      
+##  ISCED 1         : 34557   ISCED 1         : 35046   female:304958  
+##  ISCED 2         :100956   ISCED 2         :100865   male  :307044  
+##  ISCED 3A        :319865   ISCED 3A        :291768   NA&#39;s  :     2  
+##  ISCED 3B, C     :113304   ISCED 3B, C     :130423                  
+##  less than ISCED1: 18055   less than ISCED1: 17988                  
+##  NA&#39;s            : 25267   NA&#39;s            : 35914                  
+##                                                                     
+##  computer      internet           math             read          science      
+##  no  :105710   no  : 49703   Min.   : 24.74   Min.   :  0.0   Min.   : 58.74  
+##  yes :486324   yes :543010   1st Qu.:386.66   1st Qu.:375.5   1st Qu.:385.60  
+##  NA&#39;s: 19970   NA&#39;s: 19291   Median :460.66   Median :453.3   Median :458.20  
+##                              Mean   :461.22   Mean   :454.4   Mean   :460.69  
+##                              3rd Qu.:535.28   3rd Qu.:532.2   3rd Qu.:533.44  
+##                              Max.   :888.06   Max.   :887.7   Max.   :886.08  
+##                              NA&#39;s   :5377     NA&#39;s   :41320   NA&#39;s   :5377    
+##     stu_wgt           desk          room        dishwasher    television   
+##  Min.   :   1.000   no  : 68513   no  :108901   no  :     0   0   : 11304  
+##  1st Qu.:   4.946   yes :523492   yes :478520   yes :     0   1   :158958  
+##  Median :  11.133   NA&#39;s: 19999   NA&#39;s: 24583   NA&#39;s:612004   2   :199649  
+##  Mean   :  46.857                                             3+  :223022  
+##  3rd Qu.:  43.973                                             NA&#39;s: 19071  
+##  Max.   :2946.134                                                          
+##                                                                            
+##  computer_n      car              book            wealth            escs       
+##  0   : 74357   0   :108424   26-100 :169222   Min.   :-7.546   Min.   :-8.173  
+##  1   :176453   1   :197311   0-10   :125583   1st Qu.:-1.135   1st Qu.:-1.010  
+##  2   :164784   2   :173190   11-25  :124194   Median :-0.371   Median :-0.188  
+##  3+  :176886   3+  : 95485   101-200: 84750   Mean   :-0.432   Mean   :-0.281  
+##  NA&#39;s: 19524   NA&#39;s: 37594   201-500: 59168   3rd Qu.: 0.322   3rd Qu.: 0.594  
+##                              (Other): 33441   Max.   : 4.753   Max.   : 4.205  
+##                              NA&#39;s   : 15646   NA&#39;s   :13737    NA&#39;s   :14379</code></pre>
+</div>
+</div>
+<div id="data-cleaning" class="section level3">
+<h3>Data Cleaning</h3>
+<div id="to-dos" class="section level4">
+<h4>To-do’s:</h4>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+Renaming all columns to UPPERCASE and shorten its name</li>
+<li><input type="checkbox" disabled="" checked="" />
+Omit NA values from all columns</li>
+<li><input type="checkbox" disabled="" checked="" />
+Rebuilding new student profile</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Renaming columns to UPPERCASE</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>CNT <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>country</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>SCH_ID <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>school_id</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>STU_ID <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>country</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>MOTHER_ED <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>mother_educ</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>FATHER_ED <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>father_educ</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>GENDER <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>gender</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>COMPUTER <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>computer</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>INTERNET <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>internet</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>MATH <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>math</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>SCIENCE <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>science</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>STU_WGT <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>stu_wgt</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>DESK <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>desk</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>NO_TV <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>television</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>NO_COMPUTER <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>computer_n</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>NO_CAR <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>car</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>NO_BOOK <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>book</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>WEALTH <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>wealth</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>ESCS <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>escs</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuilding new student profile</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Invoking na.omit to remove missing values from the data-set</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018 <span class="ot">=</span> <span class="fu">na.omit</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  CNT,</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  SCH_ID,</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  STU_ID,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  MOTHER_ED,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  FATHER_ED,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  GENDER,</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  COMPUTER,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  INTERNET,</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  MATH,</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  SCIENCE,</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  STU_WGT,</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  DESK,</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  NO_TV,</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  NO_COMPUTER,</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  NO_CAR,</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  NO_BOOK,</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  WEALTH,</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  ESCS</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarizing new student profile data-set</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(STUDENT_PROFILE_2018)</span></code></pre></div>
+<pre><code>##       CNT              SCH_ID           STU_ID                  MOTHER_ED     
+##  ESP    : 32394   63400008:   433   ESP    : 32394   ISCED 1         : 28900  
+##  CAN    : 18794   49900054:   394   CAN    : 18794   ISCED 2         : 86090  
+##  KAZ    : 17413   63400054:   317   KAZ    : 17413   ISCED 3A        :290645  
+##  ARE    : 16589   49900014:   304   ARE    : 16589   ISCED 3B, C     :101583  
+##  QCI    : 11417   9600014 :   294   QCI    : 11417   less than ISCED1: 14561  
+##  QAT    : 11340   49900020:   290   QAT    : 11340                            
+##  (Other):413832   (Other) :519747   (Other):413832                            
+##             FATHER_ED         GENDER       COMPUTER     INTERNET    
+##  ISCED 1         : 29890   female:263079   no : 87985   no : 41307  
+##  ISCED 2         : 88579   male  :258700   yes:433794   yes:480472  
+##  ISCED 3A        :268804                                            
+##  ISCED 3B, C     :119612                                            
+##  less than ISCED1: 14894                                            
+##                                                                     
+##                                                                     
+##       MATH           SCIENCE          STU_WGT          DESK        NO_TV      
+##  Min.   : 24.74   Min.   : 58.74   Min.   :   1.000   no : 57634   0 :  8961  
+##  1st Qu.:394.95   1st Qu.:393.28   1st Qu.:   4.882   yes:464145   1 :138590  
+##  Median :468.01   Median :465.38   Median :  10.907                2 :176113  
+##  Mean   :468.39   Mean   :467.52   Mean   :  45.490                3+:198115  
+##  3rd Qu.:541.39   3rd Qu.:539.40   3rd Qu.:  41.071                           
+##  Max.   :888.06   Max.   :886.08   Max.   :2946.134                           
+##                                                                               
+##  NO_COMPUTER NO_CAR               NO_BOOK           WEALTH       
+##  0 : 60133   0 : 92293   26-100       :150701   Min.   :-7.5465  
+##  1 :153709   1 :180188   11-25        :107037   1st Qu.:-1.0724  
+##  2 :147749   2 :161298   0-10         :103450   Median :-0.3355  
+##  3+:160188   3+: 88000   101-200      : 76680   Mean   :-0.3885  
+##                          201-500      : 54247   3rd Qu.: 0.3468  
+##                          more than 500: 29664   Max.   : 4.7534  
+##                          (Other)      :     0                    
+##       ESCS        
+##  Min.   :-7.7516  
+##  1st Qu.:-0.9423  
+##  Median :-0.1240  
+##  Mean   :-0.2237  
+##  3rd Qu.: 0.6342  
+##  Max.   : 4.2051  
+## </code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># New student profile</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>SAMPLE_STUD_PROF_2018 <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(STUDENT_PROFILE_2018, <span class="dv">10</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">reactable</span>(SAMPLE_STUD_PROF_2018)</span></code></pre></div>
+<div id="htmlwidget-dda7409e9039da958d8a" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-dda7409e9039da958d8a">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"CNT":["SVN","LTU","AUT","AUS","QAZ","NOR","ARG","ARG","DNK","NLD"],"SCH_ID":["70500193","44000225","4000225","3600499","3100151","57800132","3200134","3200071","20800352","52800061"],"STU_ID":["SVN","LTU","AUT","AUS","QAZ","NOR","ARG","ARG","DNK","NLD"],"MOTHER_ED":["ISCED 3B, C","ISCED 2","ISCED 3B, C","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A"],"FATHER_ED":["ISCED 3B, C","ISCED 3B, C","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3B, C","ISCED 2","ISCED 3A","ISCED 3B, C","ISCED 3A"],"GENDER":["male","male","male","female","male","female","male","male","male","female"],"COMPUTER":["yes","yes","yes","yes","yes","yes","yes","yes","yes","yes"],"INTERNET":["yes","yes","yes","yes","yes","yes","yes","yes","yes","yes"],"MATH":[565.808,577.967,577.9,584.828,354.143,398.374,355.212,407.958,484.857,577.84],"SCIENCE":[532.604,567.945,616.257,583.004,329.988,387.485,370.03,453.043,426.876,583.254],"STU_WGT":[2.79259,3.07413,15.12209,7.4454,2.83404,7.81007,19.30949,80.46014,4.3493,42.33492],"DESK":["yes","yes","yes","yes","yes","yes","yes","yes","yes","yes"],"NO_TV":["2","2","2","3+","1","2","2","3+","3+","2"],"NO_COMPUTER":["3+","1","3+","3+","1","2","1","3+","3+","1"],"NO_CAR":["2","1","2","2","1","1","0","2","2","2"],"NO_BOOK":["26-100","101-200","201-500","201-500","more than 500","201-500","26-100","11-25","26-100","0-10"],"WEALTH":[0.2627,-1.1074,1.1869,1.1816,-0.8939,-0.0291,-1.4806,0.1685,1.1212,-0.2047],"ESCS":[0.6502,0.5354,1.4488,1.4466,-0.3158,0.7325,-1.2651,1.0924,-0.4231,-0.2061]},"columns":[{"accessor":"CNT","name":"CNT","type":"factor"},{"accessor":"SCH_ID","name":"SCH_ID","type":"factor"},{"accessor":"STU_ID","name":"STU_ID","type":"factor"},{"accessor":"MOTHER_ED","name":"MOTHER_ED","type":"factor"},{"accessor":"FATHER_ED","name":"FATHER_ED","type":"factor"},{"accessor":"GENDER","name":"GENDER","type":"factor"},{"accessor":"COMPUTER","name":"COMPUTER","type":"factor"},{"accessor":"INTERNET","name":"INTERNET","type":"factor"},{"accessor":"MATH","name":"MATH","type":"numeric"},{"accessor":"SCIENCE","name":"SCIENCE","type":"numeric"},{"accessor":"STU_WGT","name":"STU_WGT","type":"numeric"},{"accessor":"DESK","name":"DESK","type":"factor"},{"accessor":"NO_TV","name":"NO_TV","type":"factor"},{"accessor":"NO_COMPUTER","name":"NO_COMPUTER","type":"factor"},{"accessor":"NO_CAR","name":"NO_CAR","type":"factor"},{"accessor":"NO_BOOK","name":"NO_BOOK","type":"factor"},{"accessor":"WEALTH","name":"WEALTH","type":"numeric"},{"accessor":"ESCS","name":"ESCS","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"28bec50c63f8f0553f406f80e587d780","key":"28bec50c63f8f0553f406f80e587d780"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="data-processing" class="section level3">
+<h3>Data Processing</h3>
 </div>
 
 
