@@ -234,7 +234,8 @@ mother_sum
 # Initializing Data
 # Random sampling of Data from clean_grade dataframe
 # Since my computer couldn't handle 500k+ data
-sampled_clean_grade_df <- sample_n(clean_grade_df, 5000)
+sampled_clean_grade_df <- sample_n(clean_grade_df, 100)
+hist(sampled_clean_grade_df$MATH)
 sampled_clean_grade_df.MATH <- sampled_clean_grade_df$MATH
 table(sampled_clean_grade_df.MATH)
 
