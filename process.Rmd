@@ -393,30 +393,195 @@ reactable(SAMPLE_STUD_PROF_2018)
 
 ### Data Processing
 
-As mentioned in-order for us to utilize the K-Means algorithm the first rule is we must
-have numerical variables however our data-set is a mix of both numerical and categorical
-variables  
+As mentioned in-order for us to utilize the K-Means algorithm the first rule is 
+we must have numerical variables however our data-set is a mix of both numerical
+and categorical variables  
 
-So how are going to process it in a way where we're able to use K-Means Clustering despite
-the majority of the variables being categorical?
+So how are going to process it in a way where we're able to use 
+K-Means Clustering despite the majority of the variables being categorical?
 
-There are multiple algorithms that we can achieve clustering despite the data-set being
-highly categorical; like K-modes, DP-means etc... We can still use K-means but use a
-different measure of distance; (instead of Euclidean) [Gower Distance](http://dpmartin42.github.io/posts/r/cluster-mixed-types).
+There are multiple algorithms that we can achieve clustering despite the 
+data-set being highly categorical; like K-modes, DP-means etc... 
+We can still use K-means but use a different measure of distance; 
+(instead of Euclidean) [Gower Distance](http://dpmartin42.github.io/posts/r/cluster-mixed-types).
 
-Aside from K-Means and Gower we can still utilize K-Means Clustering despite having a mix
-of Numerical and Categorical and that is to map ordinal data into numerical values!
-Interesting isn't it? However this is not a good idea if your chosen categorical variables
-have no natural order however as observed in the PISA data-set most categorical variables
-are in a sense ordinal, so we're gonna utilize only those categorical variables that will
-make sense if ordered.
+Aside from K-Means and Gower we can still utilize K-Means Clustering despite 
+having a mix of Numerical and Categorical and that is to map ordinal data into 
+numerical values! Interesting isn't it? However this is not a good idea if your 
+chosen categorical variables have no natural order but as observed in the PISA 
+data-set most categorical variables are in a sense ordinal, so we're gonna 
+utilize only those categorical variables that will make sense if ordered.
 
 See here:
 [K-means Clustering on Ordinal Data](https://towardsdatascience.com/k-means-clustering-on-ordinal-data-7222b5ee1693)
 
+Here's the list of variables that is viable for mapping:  
+
+- Father's education  
+- Mother's education  
+- Number of Computers the Student have  
+- Number of Cars the Student's family have  
+- Number of TV's the Student's family have
+- Number of Book's the Student's have read
+
+How about the already existing numerical values? We're gonna leave them as is 
+and scale/normalize them later on.
+
+I'm gonna map the aforementioned variables above in a scale of 0 to 10
+Before we proceed to mapping we're gonna have to convert all variables with
+factor types to character for us to reassign mapped values
+
 ```{r message=FALSE}
+
+# Converting all factor types to character
+
+STUDENT_PROFILE_2018$FATHER_ED <- as.character(STUDENT_PROFILE_2018$FATHER_ED)
+STUDENT_PROFILE_2018$MOTHER_ED <- as.character(STUDENT_PROFILE_2018$MOTHER_ED)
+STUDENT_PROFILE_2018$NO_COMPUTER <- as.character(STUDENT_PROFILE_2018$NO_COMPUTER)
+STUDENT_PROFILE_2018$NO_CAR <- as.character(STUDENT_PROFILE_2018$NO_CAR)
+STUDENT_PROFILE_2018$NO_TV <- as.character(STUDENT_PROFILE_2018$NO_TV)
+STUDENT_PROFILE_2018$NO_BOOK <- as.character(STUDENT_PROFILE_2018$NO_BOOK)
 
 # Mapping chosen Categorical data
 
+STUDENT_PROFILE_2018$FATHER_ED <- ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='less than ISCED1', 2,
+                               ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3B, C', 4,
+                               ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3A', 6,
+                               ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 2', 8,
+                               ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 1', 10,
+                                                                                          NA))))))
+
+# Transforming FATHER_ED variable to omit duplicates and reduce data-set
+unique(STUDENT_PROFILE_2018[, "FATHER_ED"])
+
+STUDENT_PROFILE_2018$MOTHER_ED <- ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='less than ISCED1', 2,
+                               ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 3B, C', 4,
+                               ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 3A', 6,
+                               ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 2', 8,
+                               ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 1', 10,
+                                                                                          NA))))))
+
+# Transforming MOTHER_ED variable to omit duplicates and reduce data-set
+unique(STUDENT_PROFILE_2018[, "MOTHER_ED"])
+
+STUDENT_PROFILE_2018$NO_COMPUTER <- ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='0', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='1', 5,
+                               ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='2', 8,
+                               ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='3+', 10,
+                                                                                          NA)))))
+
+# Transforming NO_COMPUTER variable to omit duplicates and reduce data-set
+unique(STUDENT_PROFILE_2018[, "NO_COMPUTER"])
+
+STUDENT_PROFILE_2018$NO_TV <- ifelse(STUDENT_PROFILE_2018$`NO_TV`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_TV`=='0', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_TV`=='1', 6,
+                               ifelse(STUDENT_PROFILE_2018$`NO_TV`=='2', 7,
+                               ifelse(STUDENT_PROFILE_2018$`NO_TV`=='3+', 10,
+                                                                                          NA)))))
+
+# Transforming NO_TV variable to omit duplicates and reduce data-set
+unique(STUDENT_PROFILE_2018[, "NO_TV"])
+
+STUDENT_PROFILE_2018$NO_CAR <- ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='0', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='1', 6,
+                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='2', 7,
+                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='3+', 10,
+                                                                                          NA)))))
+
+# Transforming NO_CAR variable to omit duplicates and reduce data-set
+unique(STUDENT_PROFILE_2018[, "NO_CAR"])
+
+STUDENT_PROFILE_2018$NO_BOOK <- ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='0-10', 3,
+                               ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='11-25', 4,
+                               ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='26-100', 5,
+                               ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='101-200', 7,
+                               ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='201-500', 9,
+                               ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='more than 500', 10,
+                                                                                          NA)))))))
+
+# We're also gonna label performances of both of MATH and SCIENCE variables
+
+MATH_PERF <- ifelse(STUDENT_PROFILE_2018$`MATH`=='-', 0,
+             ifelse(STUDENT_PROFILE_2018$`MATH`<= 500, 'Developing',
+             ifelse(STUDENT_PROFILE_2018$`MATH`< 599, 'Good',
+             ifelse(STUDENT_PROFILE_2018$`MATH`>= 600 , 'Excellent',
+             NA))))
+
+SCIENCE_PERF <- ifelse(STUDENT_PROFILE_2018$`SCIENCE`=='-', 0,
+             ifelse(STUDENT_PROFILE_2018$`SCIENCE`<= 400, 'Developing',
+             ifelse(STUDENT_PROFILE_2018$`SCIENCE`< 599, 'Good',
+             ifelse(STUDENT_PROFILE_2018$`SCIENCE`>= 600 , 'Excellent',
+             NA))))
+
+# Transforming NO_BOOK variable to omit duplicates and reduce data-set
+unique(STUDENT_PROFILE_2018[, "NO_BOOK"])
+
+```
+
+After mapping our chosen ordinal variables into somewhat an order of numerical values, we're gonna rebuild a new data-frame (including their math and science performance) and leave unnecessary variables for standardization and normalization and testing.
+
+```{r message=FALSE}
+
+CNT <- STUDENT_PROFILE_2018$CNT
+FATHER_ED <- STUDENT_PROFILE_2018$FATHER_ED
+MOTHER_ED <- STUDENT_PROFILE_2018$MOTHER_ED
+NO_COMPUTER <- STUDENT_PROFILE_2018$NO_COMPUTER
+NO_CAR <- STUDENT_PROFILE_2018$NO_CAR
+NO_TV <- STUDENT_PROFILE_2018$NO_TV
+NO_BOOK <- STUDENT_PROFILE_2018$NO_BOOK
+MATH <- STUDENT_PROFILE_2018$MATH
+SCIENCE <- STUDENT_PROFILE_2018$SCIENCE
+
+
+# New data frame for testing data
+K_MEANS_TEST_DATA = data.frame(
+  CNT,
+  FATHER_ED,
+  MOTHER_ED,
+  NO_COMPUTER,
+  NO_CAR,
+  NO_TV,
+  NO_BOOK,
+  MATH,
+  MATH_PERF,
+  SCIENCE,
+  SCIENCE_PERF
+)
+
+```
+
+### Testing the K-Means Algorithm
+```{r}
+
+# Initializing the Data
+SAMPLE_K_MEANS_TEST_DATA <- sample_n(K_MEANS_TEST_DATA, 60)
+SAMPLE_K_MEANS_TEST_DATA.LABELS = SAMPLE_K_MEANS_TEST_DATA$MATH_PERF
+table(SAMPLE_K_MEANS_TEST_DATA.LABELS)
+KMEANS_MATH_DATA <- SAMPLE_K_MEANS_TEST_DATA[8:4]
+
+# Scaling the Data
+SCALED_MATH_DATA <- scale(KMEANS_MATH_DATA)
+
+# Distance
+KMEANS_MATH_DATA <- dist(SCALED_MATH_DATA)
+
+# Determining the optimal number of clusters using WSS (within sum of squares)
+
+fviz_nbclust(SCALED_MATH_DATA, kmeans, method="wss") + labs(subtitle = "Elbow method")
+
+# Applying K-Means
+
+km.out <- kmeans(SCALED_MATH_DATA, centers = 3, nstart = 100)
+print(km.out)
+km.clusters <- km.out$cluster
+rownames(SCALED_MATH_DATA) <- paste(SAMPLE_K_MEANS_TEST_DATA$CNT, 1:dim(SAMPLE_K_MEANS_TEST_DATA)[1], sep = '_')
+# Visualizing the Cluster
+fviz_cluster(list(data=SCALED_MATH_DATA, cluster = km.clusters))
 
 ```
