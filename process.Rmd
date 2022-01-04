@@ -13,7 +13,7 @@ title: "Process"
     <li><a href="#importing-pisa-2018-data">Importing Data</a></li>
     <li><a href="#exploring-the-data">Data Exploration</a></li>
     <li><a href="#data-cleaning">Data Cleaning</a></li>
-    <li><a href="#data-rocessing">Data Preprocessing</a></li>
+    <li><a href="#data-processing">Data Preprocessing</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -325,6 +325,14 @@ SCI_STAT_2018 <- summary(PISA_2018$science)
 
 ### Data Cleaning
 
+**To test K-Means Clustering we have follow its input data requirements:**  
+* Numerical variables only  
+* Data must have no noises or outliers  
+* Data has symmetric distribution of variables (it isn't skewed)  
+* Variables on the same scale  
+* There is not collinearity  
+* Few numbers of dimensions (Not necessary but as a general rule of thumb; fewer the better)
+
 #### To-do's:
 - [x] Renaming all columns to UPPERCASE and shorten its name
 - [x] Omit NA values from all columns
@@ -384,3 +392,31 @@ reactable(SAMPLE_STUD_PROF_2018)
 ``` 
 
 ### Data Processing
+
+As mentioned in-order for us to utilize the K-Means algorithm the first rule is we must
+have numerical variables however our data-set is a mix of both numerical and categorical
+variables  
+
+So how are going to process it in a way where we're able to use K-Means Clustering despite
+the majority of the variables being categorical?
+
+There are multiple algorithms that we can achieve clustering despite the data-set being
+highly categorical; like K-modes, DP-means etc... We can still use K-means but use a
+different measure of distance; (instead of Euclidean) [Gower Distance](http://dpmartin42.github.io/posts/r/cluster-mixed-types).
+
+Aside from K-Means and Gower we can still utilize K-Means Clustering despite having a mix
+of Numerical and Categorical and that is to map ordinal data into numerical values!
+Interesting isn't it? However this is not a good idea if your chosen categorical variables
+have no natural order however as observed in the PISA data-set most categorical variables
+are in a sense ordinal, so we're gonna utilize only those categorical variables that will
+make sense if ordered.
+
+See here:
+[K-means Clustering on Ordinal Data](https://towardsdatascience.com/k-means-clustering-on-ordinal-data-7222b5ee1693)
+
+```{r message=FALSE}
+
+# Mapping chosen Categorical data
+
+
+```
