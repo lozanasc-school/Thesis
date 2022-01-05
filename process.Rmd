@@ -14,7 +14,7 @@ title: "Process"
     <li><a href="#exploring-the-data">Data Exploration</a></li>
     <li><a href="#data-cleaning">Data Cleaning</a></li>
     <li><a href="#data-processing">Data Preprocessing</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#testing-the-k-means-algorithm">Applying K-Means Algorithm</a></li>
   </ol>
 </details>
 
