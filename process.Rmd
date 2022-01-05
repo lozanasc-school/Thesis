@@ -37,11 +37,8 @@ library(reactable)
 # Loading the PISA 2018 data and assigning it to variable PISA_2018
 PISA_2018 <- load_student(2018)
 
-# Sampling 10 observations from the data-set for showing example
-PISA_2018_SAMPLE <- sample_n(PISA_2018, 10)
-
 # Output of the sample
-reactable(PISA_2018_SAMPLE, 
+reactable(head(PISA_2018), 
   searchable = TRUE,
   striped = TRUE,
   highlight = TRUE,
@@ -286,6 +283,7 @@ SCI_STAT_2018 <- summary(PISA_2018$science)
     </td>
   </tr>
 </table>
+
 ```{r message=FALSE}
   PISA_MATH_2018 <- PISA_2018$math
   hist(PISA_MATH_2018, 
@@ -387,8 +385,7 @@ STUDENT_PROFILE_2018 = na.omit(data.frame(
 summary(STUDENT_PROFILE_2018)
 
 # New student profile
-SAMPLE_STUD_PROF_2018 <- sample_n(STUDENT_PROFILE_2018, 10)
-reactable(SAMPLE_STUD_PROF_2018)
+reactable(head(STUDENT_PROFILE_2018))
 ``` 
 
 ### Data Processing
@@ -493,7 +490,6 @@ STUDENT_PROFILE_2018$NO_CAR <- ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='-', 0,
                                ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='3+', 10,
                                                                                           NA)))))
 
-# Transforming NO_CAR variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "NO_CAR"])
 
 STUDENT_PROFILE_2018$NO_BOOK <- ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='-', 0,
@@ -505,22 +501,47 @@ STUDENT_PROFILE_2018$NO_BOOK <- ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='-', 0,
                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='more than 500', 10,
                                                                                           NA)))))))
 
-# We're also gonna label performances of both of MATH and SCIENCE variables
-
-MATH_PERF <- ifelse(STUDENT_PROFILE_2018$`MATH`=='-', 0,
-             ifelse(STUDENT_PROFILE_2018$`MATH`<= 500, 'Developing',
-             ifelse(STUDENT_PROFILE_2018$`MATH`< 599, 'Good',
-             ifelse(STUDENT_PROFILE_2018$`MATH`>= 600 , 'Excellent',
-             NA))))
-
-SCIENCE_PERF <- ifelse(STUDENT_PROFILE_2018$`SCIENCE`=='-', 0,
-             ifelse(STUDENT_PROFILE_2018$`SCIENCE`<= 400, 'Developing',
-             ifelse(STUDENT_PROFILE_2018$`SCIENCE`< 599, 'Good',
-             ifelse(STUDENT_PROFILE_2018$`SCIENCE`>= 600 , 'Excellent',
-             NA))))
-
 # Transforming NO_BOOK variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "NO_BOOK"])
+```
+
+!!TEST!! !!TEST!! !!TEST!!
+Don't push to master!
+Trial mapping of already numerical values
+Result: Didn't work
+
+STUDENT_PROFILE_2018$MATH <- ifelse(STUDENT_PROFILE_2018$`MATH`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`MATH` <= 300, 3,
+                               ifelse(STUDENT_PROFILE_2018$`MATH` <= 400, 5,
+                               ifelse(STUDENT_PROFILE_2018$`MATH` <= 599, 8,
+                               ifelse(STUDENT_PROFILE_2018$`MATH` >= 600, 10,
+                               NA)))))
+
+STUDENT_PROFILE_2018$SCIENCE <- ifelse(STUDENT_PROFILE_2018$`SCIENCE`=='-', 0,
+                               ifelse(STUDENT_PROFILE_2018$`SCIENCE` <= 400, 3,
+                               ifelse(STUDENT_PROFILE_2018$`SCIENCE` <= 500, 5,
+                               ifelse(STUDENT_PROFILE_2018$`SCIENCE` <= 799, 8,
+                               ifelse(STUDENT_PROFILE_2018$`SCIENCE` >= 800, 10,
+                               NA)))))
+
+
+```{r message=FALSE}
+# We're also gonna label performances of both of MATH and SCIENCE variables
+# STUDENT_PROFILE_2018$`SCIENCE`
+
+MATH_PERF <- ifelse(STUDENT_PROFILE_2018$`MATH` == '-', 0,
+             ifelse(STUDENT_PROFILE_2018$`MATH` <= 450, 'Developing',
+             ifelse(STUDENT_PROFILE_2018$`MATH` <= 699, 'Good',
+             ifelse(STUDENT_PROFILE_2018$`MATH` >= 700 , 'Excellent',
+             NA))))
+
+SCIENCE_PERF <- ifelse(STUDENT_PROFILE_2018$`SCIENCE` == '-', 0,
+             ifelse(STUDENT_PROFILE_2018$`SCIENCE` <= 450, 'Developing',
+             ifelse(STUDENT_PROFILE_2018$`SCIENCE` <= 699, 'Good',
+             ifelse(STUDENT_PROFILE_2018$`SCIENCE` >= 700 , 'Excellent',
+             NA))))
+
+
 
 ```
 
@@ -549,8 +570,8 @@ K_MEANS_TEST_DATA = data.frame(
   NO_TV,
   NO_BOOK,
   MATH,
-  MATH_PERF,
   SCIENCE,
+  MATH_PERF,
   SCIENCE_PERF
 )
 
@@ -560,12 +581,12 @@ K_MEANS_TEST_DATA = data.frame(
 ```{r}
 
 # Initializing the Data
-SAMPLE_K_MEANS_TEST_DATA <- sample_n(K_MEANS_TEST_DATA, 60)
+SAMPLE_K_MEANS_TEST_DATA <- sample_n(K_MEANS_TEST_DATA, 50)
 SAMPLE_K_MEANS_TEST_DATA.LABELS = SAMPLE_K_MEANS_TEST_DATA$MATH_PERF
 table(SAMPLE_K_MEANS_TEST_DATA.LABELS)
-KMEANS_MATH_DATA <- SAMPLE_K_MEANS_TEST_DATA[8:4]
+KMEANS_MATH_DATA <- SAMPLE_K_MEANS_TEST_DATA[2:8]
 
-# Scaling the Data
+ # Scaling the Data
 SCALED_MATH_DATA <- scale(KMEANS_MATH_DATA)
 
 # Distance
@@ -573,15 +594,18 @@ KMEANS_MATH_DATA <- dist(SCALED_MATH_DATA)
 
 # Determining the optimal number of clusters using WSS (within sum of squares)
 
-fviz_nbclust(SCALED_MATH_DATA, kmeans, method="wss") + labs(subtitle = "Elbow method")
+fviz_nbclust(SCALED_MATH_DATA, kmeans, method="wss") + labs(subtitle = "The Elbow Method")
 
 # Applying K-Means
-
 km.out <- kmeans(SCALED_MATH_DATA, centers = 3, nstart = 100)
 print(km.out)
 km.clusters <- km.out$cluster
 rownames(SCALED_MATH_DATA) <- paste(SAMPLE_K_MEANS_TEST_DATA$CNT, 1:dim(SAMPLE_K_MEANS_TEST_DATA)[1], sep = '_')
+
 # Visualizing the Cluster
 fviz_cluster(list(data=SCALED_MATH_DATA, cluster = km.clusters))
-
 ```
+
+<div class="alert alert-info" role="alert">
+  <strong> BSS/TSS Ratio: </strong> 0.0302 (the nearer the ratio to 1 the better)
+</div>
