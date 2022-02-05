@@ -398,21 +398,51 @@ Table of Contents
 <div id="importing-pisa-2018-data" class="section level3">
 <h3>Importing PISA 2018 Data</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the PISA 2018 data and assigning it to variable PISA_2018</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PISA_2018 <span class="ot">&lt;-</span> <span class="fu">load_student</span>(<span class="dv">2018</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of the sample</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">reactable</span>(<span class="fu">head</span>(PISA_2018), </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">searchable =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">striped =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">highlight =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">bordered =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">theme =</span> <span class="fu">reactableTheme</span>(</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">borderColor =</span> <span class="st">&quot;#dfe2e5&quot;</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">stripedColor =</span> <span class="st">&quot;#f6f8fa&quot;</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">highlightColor =</span> <span class="st">&quot;#f0f5f9&quot;</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">cellPadding =</span> <span class="st">&quot;8px 12px&quot;</span>))</span></code></pre></div>
-<div id="htmlwidget-3932b6a75d9f59462082" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3932b6a75d9f59462082">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"year":["2018","2018","2018","2018","2018","2018"],"country":["ALB","ALB","ALB","ALB","ALB","ALB"],"school_id":["800002","800002","800002","800002","800002","800002"],"student_id":["800251","800402","801902","803546","804776","804825"],"mother_educ":["ISCED 3A","ISCED 2","ISCED 2","ISCED 2","ISCED 2","ISCED 2"],"father_educ":["ISCED 3A","ISCED 2","ISCED 2","ISCED 2","ISCED 3A","ISCED 2"],"gender":["male","male","female","male","male","female"],"computer":["yes","yes","no","no","yes","yes"],"internet":["yes","yes","no","no","yes","yes"],"math":[490.187,462.464,406.949,482.501,459.804,367.165],"read":[375.984,434.352,359.191,425.131,306.028,352.271],"science":[445.039,421.731,392.223,515.942,328.261,284.263],"stu_wgt":[13.51452,13.51452,9.50669,13.51452,13.51452,9.50669],"desk":["yes","yes","yes","yes","yes","yes"],"room":["yes","yes","yes","no","yes","yes"],"dishwasher":[null,null,null,null,null,null],"television":["3+","1","1","0","2","1"],"computer_n":["1","1","0","0","1","1"],"car":["2","2","0",null,"0",null],"book":["0-10","11-25","0-10","0-10","11-25","11-25"],"wealth":[-0.0996,-0.7221,-3.6051,-7.0376,-1.8375,-0.8964],"escs":[0.6747,-0.7566,-2.5112,-3.1843,-1.7557,-1.4855]},"columns":[{"accessor":"year","name":"year","type":"factor"},{"accessor":"country","name":"country","type":"factor"},{"accessor":"school_id","name":"school_id","type":"factor"},{"accessor":"student_id","name":"student_id","type":"factor"},{"accessor":"mother_educ","name":"mother_educ","type":"factor"},{"accessor":"father_educ","name":"father_educ","type":"factor"},{"accessor":"gender","name":"gender","type":"factor"},{"accessor":"computer","name":"computer","type":"factor"},{"accessor":"internet","name":"internet","type":"factor"},{"accessor":"math","name":"math","type":"numeric"},{"accessor":"read","name":"read","type":"numeric"},{"accessor":"science","name":"science","type":"numeric"},{"accessor":"stu_wgt","name":"stu_wgt","type":"numeric"},{"accessor":"desk","name":"desk","type":"factor"},{"accessor":"room","name":"room","type":"factor"},{"accessor":"dishwasher","name":"dishwasher","type":"factor"},{"accessor":"television","name":"television","type":"factor"},{"accessor":"computer_n","name":"computer_n","type":"factor"},{"accessor":"car","name":"car","type":"factor"},{"accessor":"book","name":"book","type":"factor"},{"accessor":"wealth","name":"wealth","type":"numeric"},{"accessor":"escs","name":"escs","type":"numeric"}],"searchable":true,"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"bordered":true,"striped":true,"theme":{"borderColor":"#dfe2e5","stripedColor":"#f6f8fa","highlightColor":"#f0f5f9","cellPadding":"8px 12px"},"dataKey":"997e24c2e0ba37502b3d26f4a25ab34d","key":"997e24c2e0ba37502b3d26f4a25ab34d"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtering ASEAN countries to be loaded</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar, Philippines, Singapore, # Thailand and, Vietnam</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>PISA_2018 <span class="ot">&lt;-</span> <span class="fu">load_student</span>(<span class="dv">2018</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtering ASEAN countries and assigning them into their own data-frames</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>PH <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;PHL&#39;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>BRN <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;BRN&#39;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>IDN <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;IDN&#39;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>KHM <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;KHM&#39;</span>) <span class="co"># Did not participate</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>LAO <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;LAO&#39;</span>) <span class="co"># Did not participate</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>MYS <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;MYS&#39;</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>THA <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;THA&#39;</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>VNM <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;VNM&#39;</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>SGP <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;SGP&#39;</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>MMR <span class="ot">&lt;-</span> <span class="fu">filter</span>(PISA_2018, country <span class="sc">==</span> <span class="st">&#39;MMR&#39;</span>) <span class="co"># Did not participate</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># There are in total 3 countries that did not participate in the PISA 2018 assessment</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>NO_OF_SAMPLE <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Building ASEAN data-frame</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ASEAN_PISA_2018 <span class="ot">=</span> <span class="fu">rbind.data.frame</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(PH, NO_OF_SAMPLE),</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(BRN, NO_OF_SAMPLE),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(IDN, NO_OF_SAMPLE),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(MYS, NO_OF_SAMPLE),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(THA, NO_OF_SAMPLE),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(VNM, NO_OF_SAMPLE),</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(SGP, NO_OF_SAMPLE)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of the sample</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">reactable</span>(<span class="fu">head</span>(PISA_2018), </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">searchable =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">striped =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">highlight =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">bordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">theme =</span> <span class="fu">reactableTheme</span>(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">borderColor =</span> <span class="st">&quot;#dfe2e5&quot;</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">stripedColor =</span> <span class="st">&quot;#f6f8fa&quot;</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">highlightColor =</span> <span class="st">&quot;#f0f5f9&quot;</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">cellPadding =</span> <span class="st">&quot;8px 12px&quot;</span>))</span></code></pre></div>
+<div id="htmlwidget-0365f399782e41d4ac43" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0365f399782e41d4ac43">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"year":["2018","2018","2018","2018","2018","2018"],"country":["ALB","ALB","ALB","ALB","ALB","ALB"],"school_id":["800002","800002","800002","800002","800002","800002"],"student_id":["800251","800402","801902","803546","804776","804825"],"mother_educ":["ISCED 3A","ISCED 2","ISCED 2","ISCED 2","ISCED 2","ISCED 2"],"father_educ":["ISCED 3A","ISCED 2","ISCED 2","ISCED 2","ISCED 3A","ISCED 2"],"gender":["male","male","female","male","male","female"],"computer":["yes","yes","no","no","yes","yes"],"internet":["yes","yes","no","no","yes","yes"],"math":[490.187,462.464,406.949,482.501,459.804,367.165],"read":[375.984,434.352,359.191,425.131,306.028,352.271],"science":[445.039,421.731,392.223,515.942,328.261,284.263],"stu_wgt":[13.51452,13.51452,9.50669,13.51452,13.51452,9.50669],"desk":["yes","yes","yes","yes","yes","yes"],"room":["yes","yes","yes","no","yes","yes"],"dishwasher":[null,null,null,null,null,null],"television":["3+","1","1","0","2","1"],"computer_n":["1","1","0","0","1","1"],"car":["2","2","0",null,"0",null],"book":["0-10","11-25","0-10","0-10","11-25","11-25"],"wealth":[-0.0996,-0.7221,-3.6051,-7.0376,-1.8375,-0.8964],"escs":[0.6747,-0.7566,-2.5112,-3.1843,-1.7557,-1.4855]},"columns":[{"accessor":"year","name":"year","type":"factor"},{"accessor":"country","name":"country","type":"factor"},{"accessor":"school_id","name":"school_id","type":"factor"},{"accessor":"student_id","name":"student_id","type":"factor"},{"accessor":"mother_educ","name":"mother_educ","type":"factor"},{"accessor":"father_educ","name":"father_educ","type":"factor"},{"accessor":"gender","name":"gender","type":"factor"},{"accessor":"computer","name":"computer","type":"factor"},{"accessor":"internet","name":"internet","type":"factor"},{"accessor":"math","name":"math","type":"numeric"},{"accessor":"read","name":"read","type":"numeric"},{"accessor":"science","name":"science","type":"numeric"},{"accessor":"stu_wgt","name":"stu_wgt","type":"numeric"},{"accessor":"desk","name":"desk","type":"factor"},{"accessor":"room","name":"room","type":"factor"},{"accessor":"dishwasher","name":"dishwasher","type":"factor"},{"accessor":"television","name":"television","type":"factor"},{"accessor":"computer_n","name":"computer_n","type":"factor"},{"accessor":"car","name":"car","type":"factor"},{"accessor":"book","name":"book","type":"factor"},{"accessor":"wealth","name":"wealth","type":"numeric"},{"accessor":"escs","name":"escs","type":"numeric"}],"searchable":true,"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"bordered":true,"striped":true,"theme":{"borderColor":"#dfe2e5","stripedColor":"#f6f8fa","highlightColor":"#f0f5f9","cellPadding":"8px 12px"},"dataKey":"997e24c2e0ba37502b3d26f4a25ab34d","key":"997e24c2e0ba37502b3d26f4a25ab34d"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 <div id="pisa-2018-data-format" class="section level4">
 <h4>PISA 2018 Data Format</h4>
 <div class="alert alert-info" role="alert">
@@ -616,7 +646,7 @@ data.frame
 <div id="summary-statistics-of-the-data-set" class="section level4">
 <h4>Summary Statistics of the Data-set</h4>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mathematics summary Stats</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>MATH_STAT_2018 <span class="ot">&lt;-</span> <span class="fu">summary</span>(PISA_2018<span class="sc">$</span>math)</span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>MATH_STAT_2018 <span class="ot">&lt;-</span> <span class="fu">summary</span>(ASEAN_PISA_2018<span class="sc">$</span>math)</span></code></pre></div>
 <table class="table table-hover">
 <tr>
 <th>
@@ -666,7 +696,7 @@ Missing
 </tr>
 </table>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Science summary Stats</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SCI_STAT_2018 <span class="ot">&lt;-</span> <span class="fu">summary</span>(PISA_2018<span class="sc">$</span>science)</span></code></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SCI_STAT_2018 <span class="ot">&lt;-</span> <span class="fu">summary</span>(ASEAN_PISA_2018<span class="sc">$</span>science)</span></code></pre></div>
 <table class="table table-hover">
 <tr>
 <th>
@@ -715,7 +745,7 @@ Missing
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  PISA_MATH_2018 <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>math</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  PISA_MATH_2018 <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>math</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(PISA_MATH_2018, </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Histogram of&quot;</span>, <span class="st">&quot;PISA 2018 Mathematics Performance&quot;</span>), </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="st">&quot;#3e3f3a&quot;</span>)</span></code></pre></div>
@@ -723,7 +753,7 @@ Missing
 <div class="alert alert-info" role="alert">
 <p><strong> Distribution: </strong> Normal</p>
 </div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  PISA_SCI_2018 <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>science</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  PISA_SCI_2018 <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>science</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(PISA_SCI_2018, </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Histogram of&quot;</span>, <span class="st">&quot;PISA 2018 Science Performance&quot;</span>),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;#3e3f3a&quot;</span>)</span></code></pre></div>
@@ -738,46 +768,46 @@ Missing
 </div>
 <div id="summary-statistics-of-the-remaining-variables" class="section level4">
 <h4>Summary Statistics of the remaining Variables</h4>
-<pre><code>##    year           country          school_id         student_id    
-##  2000:     0   ESP    : 35943   63400008:   491   10000002:     1  
-##  2003:     0   CAN    : 22653   49900054:   423   10000005:     1  
-##  2006:     0   KAZ    : 19507   63400054:   349   10000006:     1  
-##  2009:     0   ARE    : 19277   49900020:   323   10000007:     1  
-##  2012:     0   AUS    : 14273   49900014:   320   10000009:     1  
-##  2015:     0   QAT    : 13828   9600014 :   314   10000010:     1  
-##  2018:612004   (Other):486523   (Other) :609784   (Other) :611998  
-##            mother_educ               father_educ        gender      
-##  ISCED 1         : 34557   ISCED 1         : 35046   female:304958  
-##  ISCED 2         :100956   ISCED 2         :100865   male  :307044  
-##  ISCED 3A        :319865   ISCED 3A        :291768   NA&#39;s  :     2  
-##  ISCED 3B, C     :113304   ISCED 3B, C     :130423                  
-##  less than ISCED1: 18055   less than ISCED1: 17988                  
-##  NA&#39;s            : 25267   NA&#39;s            : 35914                  
-##                                                                     
-##  computer      internet           math             read          science      
-##  no  :105710   no  : 49703   Min.   : 24.74   Min.   :  0.0   Min.   : 58.74  
-##  yes :486324   yes :543010   1st Qu.:386.66   1st Qu.:375.5   1st Qu.:385.60  
-##  NA&#39;s: 19970   NA&#39;s: 19291   Median :460.66   Median :453.3   Median :458.20  
-##                              Mean   :461.22   Mean   :454.4   Mean   :460.69  
-##                              3rd Qu.:535.28   3rd Qu.:532.2   3rd Qu.:533.44  
-##                              Max.   :888.06   Max.   :887.7   Max.   :886.08  
-##                              NA&#39;s   :5377     NA&#39;s   :41320   NA&#39;s   :5377    
-##     stu_wgt           desk          room        dishwasher    television   
-##  Min.   :   1.000   no  : 68513   no  :108901   no  :     0   0   : 11304  
-##  1st Qu.:   4.946   yes :523492   yes :478520   yes :     0   1   :158958  
-##  Median :  11.133   NA&#39;s: 19999   NA&#39;s: 24583   NA&#39;s:612004   2   :199649  
-##  Mean   :  46.857                                             3+  :223022  
-##  3rd Qu.:  43.973                                             NA&#39;s: 19071  
-##  Max.   :2946.134                                                          
-##                                                                            
-##  computer_n      car              book            wealth            escs       
-##  0   : 74357   0   :108424   26-100 :169222   Min.   :-7.546   Min.   :-8.173  
-##  1   :176453   1   :197311   0-10   :125583   1st Qu.:-1.135   1st Qu.:-1.010  
-##  2   :164784   2   :173190   11-25  :124194   Median :-0.371   Median :-0.188  
-##  3+  :176886   3+  : 95485   101-200: 84750   Mean   :-0.432   Mean   :-0.281  
-##  NA&#39;s: 19524   NA&#39;s: 37594   201-500: 59168   3rd Qu.: 0.322   3rd Qu.: 0.594  
-##                              (Other): 33441   Max.   : 4.753   Max.   : 4.205  
-##                              NA&#39;s   : 15646   NA&#39;s   :13737    NA&#39;s   :14379</code></pre>
+<pre><code>##    year        country      school_id      student_id            mother_educ 
+##  2000:  0   BRN    :50   9600043 :  5   36000099:  1   ISCED 1         : 47  
+##  2003:  0   IDN    :50   9600034 :  4   36000115:  1   ISCED 2         : 60  
+##  2006:  0   MYS    :50   36000202:  3   36001531:  1   ISCED 3A        :196  
+##  2009:  0   PHL    :50   45800078:  3   36001692:  1   ISCED 3B, C     : 25  
+##  2012:  0   SGP    :50   76400163:  3   36002429:  1   less than ISCED1: 18  
+##  2015:  0   THA    :50   9600007 :  3   36002938:  1   NA&#39;s            :  4  
+##  2018:350   (Other):50   (Other) :329   (Other) :344                         
+##            father_educ     gender    computer   internet        math      
+##  ISCED 1         : 37   female:177   no  :154   no  : 77   Min.   :201.8  
+##  ISCED 2         : 63   male  :173   yes :194   yes :268   1st Qu.:350.5  
+##  ISCED 3A        :184                NA&#39;s:  2   NA&#39;s:  5   Median :419.3  
+##  ISCED 3B, C     : 38                                      Mean   :429.0  
+##  less than ISCED1: 20                                      3rd Qu.:500.7  
+##  NA&#39;s            :  8                                      Max.   :710.0  
+##                                                            NA&#39;s   :50     
+##       read          science         stu_wgt           desk       room    
+##  Min.   :178.7   Min.   :212.9   Min.   :   1.000   no  : 46   no  :105  
+##  1st Qu.:321.5   1st Qu.:361.1   1st Qu.:   7.122   yes :300   yes :242  
+##  Median :401.0   Median :420.0   Median :  65.700   NA&#39;s:  4   NA&#39;s:  3  
+##  Mean   :411.6   Mean   :435.0   Mean   : 115.904                        
+##  3rd Qu.:478.1   3rd Qu.:501.0   3rd Qu.: 163.145                        
+##  Max.   :710.9   Max.   :751.1   Max.   :1245.506                        
+##  NA&#39;s   :50      NA&#39;s   :50                                              
+##  dishwasher television computer_n   car           book         wealth       
+##  no  :  0   0   :  7   0   : 98   0   :152   26-100 :103   Min.   :-7.1134  
+##  yes :  0   1   :159   1   :118   1   : 94   11-25  : 94   1st Qu.:-2.2001  
+##  NA&#39;s:350   2   :112   2   : 56   2   : 43   0-10   : 77   Median :-1.2547  
+##             3+  : 68   3+  : 74   3+  : 50   101-200: 36   Mean   :-1.2303  
+##             NA&#39;s:  4   NA&#39;s:  4   NA&#39;s: 11   201-500: 21   3rd Qu.:-0.2026  
+##                                              (Other): 16   Max.   : 3.9531  
+##                                              NA&#39;s   :  3   NA&#39;s   :2        
+##       escs         
+##  Min.   :-3.93080  
+##  1st Qu.:-1.69988  
+##  Median :-0.87700  
+##  Mean   :-0.89131  
+##  3rd Qu.:-0.01137  
+##  Max.   : 1.90430  
+##  NA&#39;s   :2</code></pre>
 </div>
 </div>
 <div id="data-cleaning" class="section level3">
@@ -789,35 +819,25 @@ Missing
 * Variables on the same scale<br />
 * There is not collinearity<br />
 * Few numbers of dimensions (Not necessary but as a general rule of thumb; fewer the better)</p>
-<div id="to-dos" class="section level4">
-<h4>To-do’s:</h4>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" checked="" />
-Renaming all columns to UPPERCASE and shorten its name</li>
-<li><input type="checkbox" disabled="" checked="" />
-Omit NA values from all columns</li>
-<li><input type="checkbox" disabled="" checked="" />
-Rebuilding new student profile</li>
-</ul>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Renaming columns to UPPERCASE</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>CNT <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>country</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>SCH_ID <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>school_id</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>STU_ID <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>country</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>MOTHER_ED <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>mother_educ</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>FATHER_ED <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>father_educ</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>GENDER <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>gender</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>COMPUTER <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>computer</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>INTERNET <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>internet</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>MATH <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>math</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>SCIENCE <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>science</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>STU_WGT <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>stu_wgt</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>DESK <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>desk</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>NO_TV <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>television</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>NO_COMPUTER <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>computer_n</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>NO_CAR <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>car</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>NO_BOOK <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>book</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>WEALTH <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>wealth</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>ESCS <span class="ot">&lt;-</span> PISA_2018<span class="sc">$</span>escs</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>CNT <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>country</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>SCH_ID <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>school_id</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>STU_ID <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>country</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>MOTHER_ED <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>mother_educ</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>FATHER_ED <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>father_educ</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>GENDER <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>gender</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>COMPUTER <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>computer</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>INTERNET <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>internet</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>MATH <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>math</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>SCIENCE <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>science</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>STU_WGT <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>stu_wgt</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>DESK <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>desk</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>NO_TV <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>television</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>NO_COMPUTER <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>computer_n</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>NO_CAR <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>car</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>NO_BOOK <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>book</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>WEALTH <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>wealth</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>ESCS <span class="ot">&lt;-</span> ASEAN_PISA_2018<span class="sc">$</span>escs</span>
 <span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuilding new student profile</span></span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Invoking na.omit to remove missing values from the data-set</span></span>
@@ -844,51 +864,42 @@ Rebuilding new student profile</li>
 <span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarizing new student profile data-set</span></span>
 <span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(STUDENT_PROFILE_2018)</span></code></pre></div>
-<pre><code>##       CNT              SCH_ID           STU_ID                  MOTHER_ED     
-##  ESP    : 32394   63400008:   433   ESP    : 32394   ISCED 1         : 28900  
-##  CAN    : 18794   49900054:   394   CAN    : 18794   ISCED 2         : 86090  
-##  KAZ    : 17413   63400054:   317   KAZ    : 17413   ISCED 3A        :290645  
-##  ARE    : 16589   49900014:   304   ARE    : 16589   ISCED 3B, C     :101583  
-##  QCI    : 11417   9600014 :   294   QCI    : 11417   less than ISCED1: 14561  
-##  QAT    : 11340   49900020:   290   QAT    : 11340                            
-##  (Other):413832   (Other) :519747   (Other):413832                            
-##             FATHER_ED         GENDER       COMPUTER     INTERNET    
-##  ISCED 1         : 29890   female:263079   no : 87985   no : 41307  
-##  ISCED 2         : 88579   male  :258700   yes:433794   yes:480472  
-##  ISCED 3A        :268804                                            
-##  ISCED 3B, C     :119612                                            
-##  less than ISCED1: 14894                                            
-##                                                                     
-##                                                                     
-##       MATH           SCIENCE          STU_WGT          DESK        NO_TV      
-##  Min.   : 24.74   Min.   : 58.74   Min.   :   1.000   no : 57634   0 :  8961  
-##  1st Qu.:394.95   1st Qu.:393.28   1st Qu.:   4.882   yes:464145   1 :138590  
-##  Median :468.01   Median :465.38   Median :  10.907                2 :176113  
-##  Mean   :468.39   Mean   :467.52   Mean   :  45.490                3+:198115  
-##  3rd Qu.:541.39   3rd Qu.:539.40   3rd Qu.:  41.071                           
-##  Max.   :888.06   Max.   :886.08   Max.   :2946.134                           
-##                                                                               
-##  NO_COMPUTER NO_CAR               NO_BOOK           WEALTH       
-##  0 : 60133   0 : 92293   26-100       :150701   Min.   :-7.5465  
-##  1 :153709   1 :180188   11-25        :107037   1st Qu.:-1.0724  
-##  2 :147749   2 :161298   0-10         :103450   Median :-0.3355  
-##  3+:160188   3+: 88000   101-200      : 76680   Mean   :-0.3885  
-##                          201-500      : 54247   3rd Qu.: 0.3468  
-##                          more than 500: 29664   Max.   : 4.7534  
-##                          (Other)      :     0                    
-##       ESCS        
-##  Min.   :-7.7516  
-##  1st Qu.:-0.9423  
-##  Median :-0.1240  
-##  Mean   :-0.2237  
-##  3rd Qu.: 0.6342  
-##  Max.   : 4.2051  
-## </code></pre>
+<pre><code>##       CNT          SCH_ID        STU_ID              MOTHER_ED  
+##  THA    :49   36000202:  3   THA    :49   ISCED 1         : 32  
+##  MYS    :48   45800078:  3   MYS    :48   ISCED 2         : 39  
+##  IDN    :46   76400163:  3   IDN    :46   ISCED 3A        :169  
+##  SGP    :46   9600007 :  3   SGP    :46   ISCED 3B, C     : 21  
+##  PHL    :43   9600034 :  3   PHL    :43   less than ISCED1: 11  
+##  BRN    :40   9600043 :  3   BRN    :40                         
+##  (Other): 0   (Other) :254   (Other): 0                         
+##             FATHER_ED      GENDER    COMPUTER  INTERNET       MATH      
+##  ISCED 1         : 27   female:143   no :110   no : 61   Min.   :201.8  
+##  ISCED 2         : 41   male  :129   yes:162   yes:211   1st Qu.:356.5  
+##  ISCED 3A        :156                                    Median :424.9  
+##  ISCED 3B, C     : 34                                    Mean   :432.8  
+##  less than ISCED1: 14                                    3rd Qu.:513.1  
+##                                                          Max.   :710.0  
+##                                                                         
+##     SCIENCE         STU_WGT          DESK     NO_TV    NO_COMPUTER NO_CAR  
+##  Min.   :212.9   Min.   :   1.000   no : 36   0 :  5   0 :71       0 :106  
+##  1st Qu.:366.6   1st Qu.:   6.856   yes:236   1 :123   1 :92       1 : 82  
+##  Median :422.4   Median :  57.443             2 : 88   2 :46       2 : 38  
+##  Mean   :438.8   Mean   : 106.696             3+: 56   3+:63       3+: 46  
+##  3rd Qu.:509.0   3rd Qu.:  94.711                                          
+##  Max.   :751.1   Max.   :1245.506                                          
+##                                                                            
+##           NO_BOOK       WEALTH              ESCS        
+##  26-100       :79   Min.   :-7.11340   Min.   :-3.9308  
+##  11-25        :74   1st Qu.:-2.12502   1st Qu.:-1.5845  
+##  0-10         :52   Median :-1.14575   Median :-0.7911  
+##  101-200      :32   Mean   :-1.12824   Mean   :-0.7587  
+##  201-500      :20   3rd Qu.:-0.09252   3rd Qu.: 0.1125  
+##  more than 500:15   Max.   : 3.95310   Max.   : 1.9043  
+##  (Other)      : 0</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># New student profile</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">reactable</span>(<span class="fu">head</span>(STUDENT_PROFILE_2018))</span></code></pre></div>
-<div id="htmlwidget-a2fb06070812968dc359" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-a2fb06070812968dc359">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"CNT":["ALB","ALB","ALB","ALB","ALB","ALB"],"SCH_ID":["800002","800002","800002","800002","800002","800002"],"STU_ID":["ALB","ALB","ALB","ALB","ALB","ALB"],"MOTHER_ED":["ISCED 3A","ISCED 2","ISCED 2","ISCED 2","ISCED 2","ISCED 2"],"FATHER_ED":["ISCED 3A","ISCED 2","ISCED 2","ISCED 3A","ISCED 2","ISCED 2"],"GENDER":["male","male","female","male","male","female"],"COMPUTER":["yes","yes","no","yes","no","yes"],"INTERNET":["yes","yes","no","yes","no","yes"],"MATH":[490.187,462.464,406.949,459.804,441.037,506.093],"SCIENCE":[445.039,421.731,392.223,328.261,391.562,389.218],"STU_WGT":[13.51452,13.51452,9.50669,13.51452,13.51452,9.50669],"DESK":["yes","yes","yes","yes","no","yes"],"NO_TV":["3+","1","1","2","1","1"],"NO_COMPUTER":["1","1","0","1","0","1"],"NO_CAR":["2","2","0","0","0","2"],"NO_BOOK":["0-10","11-25","0-10","11-25","0-10","11-25"],"WEALTH":[-0.0996,-0.7221,-3.6051,-1.8375,-3.3724,-0.9799],"ESCS":[0.6747,-0.7566,-2.5112,-1.7557,-3.2481,-1.7174]},"columns":[{"accessor":"CNT","name":"CNT","type":"factor"},{"accessor":"SCH_ID","name":"SCH_ID","type":"factor"},{"accessor":"STU_ID","name":"STU_ID","type":"factor"},{"accessor":"MOTHER_ED","name":"MOTHER_ED","type":"factor"},{"accessor":"FATHER_ED","name":"FATHER_ED","type":"factor"},{"accessor":"GENDER","name":"GENDER","type":"factor"},{"accessor":"COMPUTER","name":"COMPUTER","type":"factor"},{"accessor":"INTERNET","name":"INTERNET","type":"factor"},{"accessor":"MATH","name":"MATH","type":"numeric"},{"accessor":"SCIENCE","name":"SCIENCE","type":"numeric"},{"accessor":"STU_WGT","name":"STU_WGT","type":"numeric"},{"accessor":"DESK","name":"DESK","type":"factor"},{"accessor":"NO_TV","name":"NO_TV","type":"factor"},{"accessor":"NO_COMPUTER","name":"NO_COMPUTER","type":"factor"},{"accessor":"NO_CAR","name":"NO_CAR","type":"factor"},{"accessor":"NO_BOOK","name":"NO_BOOK","type":"factor"},{"accessor":"WEALTH","name":"WEALTH","type":"numeric"},{"accessor":"ESCS","name":"ESCS","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"dbd2a4bbc8cf4feee72b03e89ad4aba3","key":"dbd2a4bbc8cf4feee72b03e89ad4aba3"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
-</div>
+<div id="htmlwidget-f9ab81f5cdcc64a30ed6" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f9ab81f5cdcc64a30ed6">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"CNT":["PHL","PHL","PHL","PHL","PHL","PHL"],"SCH_ID":["60800056","60800111","60800172","60800107","60800163","60800169"],"STU_ID":["PHL","PHL","PHL","PHL","PHL","PHL"],"MOTHER_ED":["ISCED 1","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 3A","ISCED 1"],"FATHER_ED":["ISCED 1","ISCED 3A","ISCED 1","less than ISCED1","ISCED 3A","less than ISCED1"],"GENDER":["female","male","male","female","male","male"],"COMPUTER":["no","no","yes","no","no","no"],"INTERNET":["no","yes","no","no","yes","no"],"MATH":[201.805,379.309,221.324,223.504,346.872,217.831],"SCIENCE":[324.038,414.181,296.549,223.971,414.229,236.206],"STU_WGT":[181.60426,176.77967,159.27376,207.72453,218.97282,125.76282],"DESK":["yes","no","yes","yes","yes","yes"],"NO_TV":["1","2","0","2","1","1"],"NO_COMPUTER":["1","0","0","0","1","0"],"NO_CAR":["0","0","0","1","0","0"],"NO_BOOK":["0-10","0-10","0-10","0-10","26-100","0-10"],"WEALTH":[-2.5489,-2.4487,-5.3471,-2.4092,-1.6554,-3.3962],"ESCS":[-1.8135,-2.1699,-1.3982,-1.8486,-0.0427,-3.0909]},"columns":[{"accessor":"CNT","name":"CNT","type":"factor"},{"accessor":"SCH_ID","name":"SCH_ID","type":"factor"},{"accessor":"STU_ID","name":"STU_ID","type":"factor"},{"accessor":"MOTHER_ED","name":"MOTHER_ED","type":"factor"},{"accessor":"FATHER_ED","name":"FATHER_ED","type":"factor"},{"accessor":"GENDER","name":"GENDER","type":"factor"},{"accessor":"COMPUTER","name":"COMPUTER","type":"factor"},{"accessor":"INTERNET","name":"INTERNET","type":"factor"},{"accessor":"MATH","name":"MATH","type":"numeric"},{"accessor":"SCIENCE","name":"SCIENCE","type":"numeric"},{"accessor":"STU_WGT","name":"STU_WGT","type":"numeric"},{"accessor":"DESK","name":"DESK","type":"factor"},{"accessor":"NO_TV","name":"NO_TV","type":"factor"},{"accessor":"NO_COMPUTER","name":"NO_COMPUTER","type":"factor"},{"accessor":"NO_CAR","name":"NO_CAR","type":"factor"},{"accessor":"NO_BOOK","name":"NO_BOOK","type":"factor"},{"accessor":"WEALTH","name":"WEALTH","type":"numeric"},{"accessor":"ESCS","name":"ESCS","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"eece0b485902934f8812754aa63d8173","key":"eece0b485902934f8812754aa63d8173"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="data-processing" class="section level3">
 <h3>Data Processing</h3>
@@ -912,28 +923,19 @@ Rebuilding new student profile</li>
 </ul>
 <p>How about the already existing numerical values? We’re gonna leave them as is and scale/normalize them later on.</p>
 <p>I’m gonna map the aforementioned variables above in a scale of 0 to 10 Before we proceed to mapping we’re gonna have to convert all variables with factor types to character for us to reassign mapped values</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting all factor types to character</span></span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapping chosen Categorical data</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>FATHER_ED <span class="ot">&lt;-</span> <span class="fu">as.character</span>(STUDENT_PROFILE_2018<span class="sc">$</span>FATHER_ED)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>MOTHER_ED <span class="ot">&lt;-</span> <span class="fu">as.character</span>(STUDENT_PROFILE_2018<span class="sc">$</span>MOTHER_ED)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_COMPUTER <span class="ot">&lt;-</span> <span class="fu">as.character</span>(STUDENT_PROFILE_2018<span class="sc">$</span>NO_COMPUTER)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_CAR <span class="ot">&lt;-</span> <span class="fu">as.character</span>(STUDENT_PROFILE_2018<span class="sc">$</span>NO_CAR)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_TV <span class="ot">&lt;-</span> <span class="fu">as.character</span>(STUDENT_PROFILE_2018<span class="sc">$</span>NO_TV)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_BOOK <span class="ot">&lt;-</span> <span class="fu">as.character</span>(STUDENT_PROFILE_2018<span class="sc">$</span>NO_BOOK)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapping chosen Categorical data</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>FATHER_ED <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;less than ISCED1&#39;</span>, <span class="dv">2</span>,</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 3B, C&#39;</span>, <span class="dv">4</span>,</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 3A&#39;</span>, <span class="dv">6</span>,</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 2&#39;</span>, <span class="dv">8</span>,</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 1&#39;</span>, <span class="dv">10</span>,</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                                                                                          <span class="cn">NA</span>))))))</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Transforming FATHER_ED variable to omit duplicates and reduce data-set</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;FATHER_ED&quot;</span>])</span></code></pre></div>
-<pre><code>## [1]  6  8 10  4  2</code></pre>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>FATHER_ED <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;less than ISCED1&#39;</span>, <span class="dv">2</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 3B, C&#39;</span>, <span class="dv">4</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 3A&#39;</span>, <span class="dv">6</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 2&#39;</span>, <span class="dv">8</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">FATHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 1&#39;</span>, <span class="dv">10</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                                                                                          <span class="cn">NA</span>))))))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Transforming FATHER_ED variable to omit duplicates and reduce data-set</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;FATHER_ED&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 10  6  2  8  4</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>MOTHER_ED <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">MOTHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">MOTHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;less than ISCED1&#39;</span>, <span class="dv">2</span>,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">MOTHER_ED</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;ISCED 3B, C&#39;</span>, <span class="dv">4</span>,</span>
@@ -944,7 +946,7 @@ Rebuilding new student profile</li>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Transforming MOTHER_ED variable to omit duplicates and reduce data-set</span></span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;MOTHER_ED&quot;</span>])</span></code></pre></div>
-<pre><code>## [1]  6  8 10  4  2</code></pre>
+<pre><code>## [1] 10  6  4  8  2</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_COMPUTER <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_COMPUTER</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_COMPUTER</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;0&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_COMPUTER</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;1&#39;</span>, <span class="dv">5</span>,</span>
@@ -954,7 +956,7 @@ Rebuilding new student profile</li>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Transforming NO_COMPUTER variable to omit duplicates and reduce data-set</span></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;NO_COMPUTER&quot;</span>])</span></code></pre></div>
-<pre><code>## [1]  5  0  8 10</code></pre>
+<pre><code>## [1]  5  0 10  8</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_TV <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_TV</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_TV</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;0&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_TV</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;1&#39;</span>, <span class="dv">6</span>,</span>
@@ -964,7 +966,7 @@ Rebuilding new student profile</li>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Transforming NO_TV variable to omit duplicates and reduce data-set</span></span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;NO_TV&quot;</span>])</span></code></pre></div>
-<pre><code>## [1] 10  6  7  0</code></pre>
+<pre><code>## [1]  6  7  0 10</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_CAR <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_CAR</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_CAR</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;0&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_CAR</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;1&#39;</span>, <span class="dv">6</span>,</span>
@@ -973,7 +975,7 @@ Rebuilding new student profile</li>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                                                                                          <span class="cn">NA</span>)))))</span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;NO_CAR&quot;</span>])</span></code></pre></div>
-<pre><code>## [1]  7  0  6 10</code></pre>
+<pre><code>## [1]  0  6  7 10</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>STUDENT_PROFILE_2018<span class="sc">$</span>NO_BOOK <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_BOOK</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;-&#39;</span>, <span class="dv">0</span>,</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_BOOK</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;0-10&#39;</span>, <span class="dv">3</span>,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">ifelse</span>(STUDENT_PROFILE_2018<span class="sc">$</span><span class="st">`</span><span class="at">NO_BOOK</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;11-25&#39;</span>, <span class="dv">4</span>,</span>
@@ -985,10 +987,7 @@ Rebuilding new student profile</li>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Transforming NO_BOOK variable to omit duplicates and reduce data-set</span></span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(STUDENT_PROFILE_2018[, <span class="st">&quot;NO_BOOK&quot;</span>])</span></code></pre></div>
-<pre><code>## [1]  3  4  5  7 10  9</code></pre>
-<p>!!TEST!! !!TEST!! !!TEST!! Don’t push to master! Trial mapping of already numerical values Result: Didn’t work</p>
-<p>STUDENT_PROFILE_2018<span class="math inline">\(MATH &lt;- ifelse(STUDENT_PROFILE_2018\)</span><code>MATH</code>==‘-’, 0, ifelse(STUDENT_PROFILE_2018<span class="math inline">\(`MATH` &lt;= 300, 3,  ifelse(STUDENT_PROFILE_2018\)</span><code>MATH</code> &lt;= 400, 5, ifelse(STUDENT_PROFILE_2018<span class="math inline">\(`MATH` &lt;= 599, 8,  ifelse(STUDENT_PROFILE_2018\)</span><code>MATH</code> &gt;= 600, 10, NA)))))</p>
-<p>STUDENT_PROFILE_2018<span class="math inline">\(SCIENCE &lt;- ifelse(STUDENT_PROFILE_2018\)</span><code>SCIENCE</code>==‘-’, 0, ifelse(STUDENT_PROFILE_2018<span class="math inline">\(`SCIENCE` &lt;= 400, 3,  ifelse(STUDENT_PROFILE_2018\)</span><code>SCIENCE</code> &lt;= 500, 5, ifelse(STUDENT_PROFILE_2018<span class="math inline">\(`SCIENCE` &lt;= 799, 8,  ifelse(STUDENT_PROFILE_2018\)</span><code>SCIENCE</code> &gt;= 800, 10, NA)))))</p>
+<pre><code>## [1]  3  5  4  7 10  9</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;re also gonna label performances of both of MATH and SCIENCE variables</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT_PROFILE_2018$`SCIENCE`</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1013,76 +1012,73 @@ Rebuilding new student profile</li>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>NO_BOOK <span class="ot">&lt;-</span> STUDENT_PROFILE_2018<span class="sc">$</span>NO_BOOK</span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>MATH <span class="ot">&lt;-</span> STUDENT_PROFILE_2018<span class="sc">$</span>MATH</span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>SCIENCE <span class="ot">&lt;-</span> STUDENT_PROFILE_2018<span class="sc">$</span>SCIENCE</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co"># New data frame for testing data</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>K_MEANS_TEST_DATA <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  CNT,</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  FATHER_ED,</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  MOTHER_ED,</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>  NO_COMPUTER,</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>  NO_CAR,</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>  NO_TV,</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  NO_BOOK,</span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  MATH,</span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>  SCIENCE,</span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>  MATH_PERF,</span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>  SCIENCE_PERF</span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>WEALTH <span class="ot">&lt;-</span> STUDENT_PROFILE_2018<span class="sc">$</span>WEALTH</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ESCS <span class="ot">&lt;-</span> STUDENT_PROFILE_2018<span class="sc">$</span>ESCS</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co"># New data frame for testing data</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>K_MEANS_TEST_DATA <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  CNT,</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>  WEALTH,</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>  MATH</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="testing-the-k-means-algorithm" class="section level3">
 <h3>Testing the K-Means Algorithm</h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initializing the Data</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SAMPLE_K_MEANS_TEST_DATA <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(K_MEANS_TEST_DATA, <span class="dv">50</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>SAMPLE_K_MEANS_TEST_DATA.LABELS <span class="ot">=</span> SAMPLE_K_MEANS_TEST_DATA<span class="sc">$</span>MATH_PERF</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(SAMPLE_K_MEANS_TEST_DATA.LABELS)</span></code></pre></div>
-<pre><code>## SAMPLE_K_MEANS_TEST_DATA.LABELS
-## Developing       Good 
-##         21         29</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>KMEANS_MATH_DATA <span class="ot">&lt;-</span> SAMPLE_K_MEANS_TEST_DATA[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>]</span>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initializing the Data)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>K_MEANS_TEST_DATA.LABELS <span class="ot">=</span> K_MEANS_TEST_DATA<span class="sc">$</span>MATH_PERF</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(K_MEANS_TEST_DATA.LABELS)</span></code></pre></div>
+<pre><code>## &lt; table of extent 0 &gt;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>KMEANS_MATH_DATA <span class="ot">&lt;-</span> K_MEANS_TEST_DATA[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># Scaling the Data</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>SCALED_MATH_DATA <span class="ot">&lt;-</span> <span class="fu">scale</span>(KMEANS_MATH_DATA)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>SCALED_MATH_DATA <span class="ot">&lt;-</span> <span class="fu">scale</span>(KMEANS_MATH_DATA, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance</span></span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>KMEANS_MATH_DATA <span class="ot">&lt;-</span> <span class="fu">dist</span>(SCALED_MATH_DATA)</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Determining the optimal number of clusters using WSS (within sum of squares)</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(SCALED_MATH_DATA, kmeans, <span class="at">method=</span><span class="st">&quot;wss&quot;</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">&quot;The Elbow Method&quot;</span>)</span></code></pre></div>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(SCALED_MATH_DATA, kmeans, <span class="at">method=</span><span class="st">&quot;wss&quot;</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">&quot;The Elbow Method&quot;</span>)</span></code></pre></div>
 <p><img src="process_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying K-Means</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>km.out <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(SCALED_MATH_DATA, <span class="at">centers =</span> <span class="dv">3</span>, <span class="at">nstart =</span> <span class="dv">100</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(km.out)</span></code></pre></div>
-<pre><code>## K-means clustering with 3 clusters of sizes 16, 26, 8
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plotting to check the sparsity of data</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(K_MEANS_TEST_DATA$ESCS,K_MEANS_TEST_DATA$MATH, main=&quot;Scatter Plot Math &amp; Science Performances in ASEAN Countries&quot;,</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   xlab = &quot;Dim 1&quot;, ylab = &quot;Dim 2&quot;, pch = 20)</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying K-Means</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>km.out <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(SCALED_MATH_DATA, <span class="at">centers =</span> <span class="dv">3</span>, <span class="at">nstart =</span> <span class="dv">100</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(km.out)</span></code></pre></div>
+<pre><code>## K-means clustering with 3 clusters of sizes 74, 63, 135
 ## 
 ## Cluster means:
-##    FATHER_ED  MOTHER_ED NO_COMPUTER     NO_CAR      NO_TV    NO_BOOK       MATH
-## 1  0.9893341  0.9979010  -0.4613914 -0.5435083 -0.2712079 -0.7501410 -0.7358896
-## 2 -0.2841165 -0.3271507   0.5328330  0.2970438  0.4420520  0.6745731  0.6638406
-## 3 -1.0552897 -0.9325623  -0.8089244  0.1216242 -0.8942531 -0.6920805 -0.6857029
+##         WEALTH       MATH
+## 1  0.953623259  1.2049210
+## 2 -1.133252548 -1.1025251
+## 3  0.006124365 -0.1459635
 ## 
 ## Clustering vector:
-##  [1] 1 2 1 1 1 3 2 2 2 2 1 3 2 2 3 3 2 2 2 3 1 1 2 1 2 2 2 3 2 3 2 2 3 1 1 2 1 1
-## [39] 1 2 2 1 2 2 2 2 2 1 1 2
+##   [1] 2 2 2 2 3 2 3 2 2 3 2 2 3 1 3 3 2 2 3 3 2 3 3 3 3 2 3 3 2 3 2 3 3 2 2 3 2
+##  [38] 2 2 2 3 3 2 3 1 1 1 3 3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 1 3 1 3 3 1 1 2 3 2 1
+##  [75] 1 3 3 1 3 3 3 1 3 2 2 3 2 3 2 3 2 2 2 2 3 2 2 2 1 1 2 3 3 2 2 3 2 3 3 2 3
+## [112] 2 2 3 2 3 2 3 3 2 2 3 3 1 3 1 2 3 3 3 3 2 1 2 1 3 3 3 3 3 2 3 3 3 1 3 3 3
+## [149] 2 3 2 3 3 3 2 1 3 1 3 3 2 1 1 1 3 3 1 3 3 3 3 3 3 1 1 2 3 1 1 3 3 1 3 3 3
+## [186] 3 1 3 1 2 3 1 3 3 2 3 3 3 3 2 3 3 3 3 1 3 2 2 3 3 3 3 3 2 1 3 2 3 3 3 3 3
+## [223] 3 2 3 3 3 1 1 1 3 1 1 1 1 1 1 1 1 1 1 3 3 1 3 1 1 1 1 1 1 1 3 1 1 1 1 1 1
+## [260] 1 1 1 1 1 3 1 3 1 1 1 1 1
 ## 
 ## Within cluster sum of squares by cluster:
-## [1]  73.33648 106.56127  26.39402
-##  (between_SS / total_SS =  39.9 %)
+## [1] 60.16737 51.97741 94.75395
+##  (between_SS / total_SS =  61.8 %)
 ## 
 ## Available components:
 ## 
 ## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
 ## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>km.clusters <span class="ot">&lt;-</span> km.out<span class="sc">$</span>cluster</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(SCALED_MATH_DATA) <span class="ot">&lt;-</span> <span class="fu">paste</span>(SAMPLE_K_MEANS_TEST_DATA<span class="sc">$</span>CNT, <span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(SAMPLE_K_MEANS_TEST_DATA)[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&#39;_&#39;</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(SCALED_MATH_DATA) <span class="ot">&lt;-</span> <span class="fu">paste</span>(K_MEANS_TEST_DATA<span class="sc">$</span>CNT, <span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(K_MEANS_TEST_DATA)[<span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&#39;_&#39;</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing the Cluster</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data=</span>SCALED_MATH_DATA, <span class="at">cluster =</span> km.clusters))</span></code></pre></div>
 <p><img src="process_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
-<div class="alert alert-info" role="alert">
-<p><strong> BSS/TSS Ratio: </strong> 0.0302 (the nearer the ratio to 1 the better)</p>
-</div>
 </div>
 
 
