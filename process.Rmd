@@ -178,10 +178,10 @@ reactable(head(PISA_2018),
 
 ```{r message=FALSE}
 # Class of the data
-class(PISA_2018)
+class(ASEAN_PISA_2018)
 
 # Total number of rows and columns in the data-set
-dim(PISA_2018)
+dim(ASEAN_PISA_2018)
 ```
 
 <table class="table table-hover">
@@ -198,7 +198,7 @@ dim(PISA_2018)
       data.frame
     </td>
     <td align="center">
-      612004 Observations
+      350 Observations
       <br/>
       22 Variables
     </td>
@@ -514,7 +514,7 @@ STUDENT_PROFILE_2018$NO_BOOK <- ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='-', 0,
                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='101-200', 7,
                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='201-500', 9,
                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='more than 500', 10,
-                                                                                          NA)))))))
+                                                                                  NA)))))))
 
 # Transforming NO_BOOK variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "NO_BOOK"])
@@ -535,9 +535,6 @@ SCIENCE_PERF <- ifelse(STUDENT_PROFILE_2018$`SCIENCE` == '-', 0,
              ifelse(STUDENT_PROFILE_2018$`SCIENCE` <= 699, 'Good',
              ifelse(STUDENT_PROFILE_2018$`SCIENCE` >= 700 , 'Excellent',
              NA))))
-
-
-
 ```
 
 After mapping our chosen ordinal variables into somewhat an order of numerical values, we're gonna rebuild a new data-frame (including their math and science performance) and leave unnecessary variables for standardization and normalization and testing.
@@ -560,18 +557,17 @@ ESCS <- STUDENT_PROFILE_2018$ESCS
 # New data frame for testing data
 K_MEANS_TEST_DATA = data.frame(
   CNT,
-  WEALTH,
+  NO_COMPUTER,
   MATH
 )
 
 ```
 
 ### Testing the K-Means Algorithm
-```{r}
 
 # Initializing the Data)
-K_MEANS_TEST_DATA.LABELS = K_MEANS_TEST_DATA$MATH_PERF
-table(K_MEANS_TEST_DATA.LABELS)
+# K_MEANS_TEST_DATA.LABELS = K_MEANS_TEST_DATA$MATH_PERF 
+# table(K_MEANS_TEST_DATA.LABELS)
 KMEANS_MATH_DATA <- K_MEANS_TEST_DATA[2:3]
 
  # Scaling the Data
@@ -595,4 +591,29 @@ rownames(SCALED_MATH_DATA) <- paste(K_MEANS_TEST_DATA$CNT, 1:dim(K_MEANS_TEST_DA
 
 # Visualizing the Cluster
 fviz_cluster(list(data=SCALED_MATH_DATA, cluster = km.clusters))
+
+
+```{r}
+# K-Means Function
+kmeansFunc <- function(dataset){
+  
+  # Initializing variables
+  KMEANS_DATA = dataset[2:3]
+  
+  # Scaling variables
+  SCALED_KMEANS_DATA = scale(KMEANS_DATA, center = TRUE, scale = TRUE)
+  
+  # Calculating Distance
+  KMEANS_DIST = dist(SCALED_KMEANS_DATA)
+  
+  # Applying the algorithm with k set to 3
+  km.out <- kmeans(SCALED_KMEANS_DATA, centers = 3, nstart = 100)
+  print(km.out)
+  km.clusters <- km.out$cluster
+  rownames(SCALED_KMEANS_DATA) <- paste(dataset$CNT, 1:dim(dataset)[1], sep = '_')
+  
+  # Visualizing the Cluster
+  fviz_cluster(list(data=SCALED_KMEANS_DATA, cluster = km.clusters))
+}
+kmeansFunc(K_MEANS_TEST_DATA)
 ```
