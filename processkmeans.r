@@ -71,16 +71,21 @@ MATH_STAT_2018 <- summary(ASEAN_PISA_2018$math)
 # Science summary Stats
 SCI_STAT_2018 <- summary(ASEAN_PISA_2018$science)
 
-# Histograms of both Math and Science Performances
-PISA_MATH_2018 <- ASEAN_PISA_2018$math
-hist(PISA_MATH_2018, 
+# Histograms of Math, Science and Wealth features
+
+hist(ASEAN_PISA_2018$math, 
      main = paste("Histogram of", "PISA 2018 Mathematics Performance"), 
      col="#3e3f3a")
 
-PISA_SCI_2018 <- ASEAN_PISA_2018$science
-hist(PISA_SCI_2018, 
+
+hist(ASEAN_PISA_2018$science, 
      main = paste("Histogram of", "PISA 2018 Science Performance"),
      col = "#3e3f3a")
+
+hist(ASEAN_PISA_2018$wealth, 
+     main = paste("Histogram of", "Wealth"),
+     col = "#3e3f3a")
+
 
 # Boxplots of both Math and Science Performances
 boxplot(na.omit(PISA_MATH_2018), col="#3e3f3a")
@@ -111,9 +116,6 @@ NO_CAR <- ASEAN_PISA_2018$car
 NO_BOOK <- ASEAN_PISA_2018$book
 WEALTH <- ASEAN_PISA_2018$wealth
 ESCS <- ASEAN_PISA_2018$escs
-STAFF_SHORT <- ASEAN_PISA_2018$staff_shortage
-ST_RATIO <- ASEAN_PISA_2018$stratio
-GOV_FUND <- ASEAN_PISA_2018$fund_gov
 
 # Rebuilding new student profile
 # Invoking na.omit to remove missing values from the data-set
@@ -135,10 +137,7 @@ STUDENT_PROFILE_2018 = na.omit(data.frame(
   NO_CAR,
   NO_BOOK,
   WEALTH,
-  ESCS,
-  STAFF_SHORT,
-  ST_RATIO,
-  GOV_FUND
+  ESCS
 ))
 
 # Summarizing new student profile data-set
@@ -150,58 +149,58 @@ reactable(head(STUDENT_PROFILE_2018))
 # Mapping chosen Categorical data
 
 STUDENT_PROFILE_2018$FATHER_ED <- ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='-', 0,
-                                  ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='less than ISCED1', 1,
-                                  ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 1', 2,
-                                  ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 2', 3,
-                                  ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3B, C', 4,
-                                  ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3A', 5,NA))))))
+                                         ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='less than ISCED1', 1,
+                                                ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 1', 2,
+                                                       ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 2', 3,
+                                                              ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3B, C', 4,
+                                                                     ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3A', 5,NA))))))
 
 # Transforming FATHER_ED variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "FATHER_ED"])
 
-STUDENT_PROFILE_2018$MOTHER_ED <- ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='-', 0,
-                                  ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='less than ISCED1', 1,
-                                  ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 1', 2,
-                                  ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 2', 3,
-                                  ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 3B, C', 4,
-                                  ifelse(STUDENT_PROFILE_2018$`MOTHER_ED`=='ISCED 3A', 5,NA))))))
+STUDENT_PROFILE_2018$MOTHER_ED <- ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='-', 0,
+                                         ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='less than ISCED1', 1,
+                                                ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 1', 2,
+                                                       ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 2', 3,
+                                                              ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3B, C', 4,
+                                                                     ifelse(STUDENT_PROFILE_2018$`FATHER_ED`=='ISCED 3A', 5,NA))))))
 
 # Transforming MOTHER_ED variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "MOTHER_ED"])
 
 STUDENT_PROFILE_2018$NO_COMPUTER <- ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='-', 0,
-                                    ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='0', 0,
-                                    ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='1', 1,
-                                    ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='2', 3,
-                                    ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='3+', 5,NA)))))
+                                           ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='0', 0,
+                                                  ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='1', 1,
+                                                         ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='2', 3,
+                                                                ifelse(STUDENT_PROFILE_2018$`NO_COMPUTER`=='3+', 5,NA)))))
 
 # Transforming NO_COMPUTER variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "NO_COMPUTER"])
 
 STUDENT_PROFILE_2018$NO_TV <- ifelse(STUDENT_PROFILE_2018$`NO_TV`=='-', 0,
-                              ifelse(STUDENT_PROFILE_2018$`NO_TV`=='0', 0,
-                              ifelse(STUDENT_PROFILE_2018$`NO_TV`=='1', 1,
-                              ifelse(STUDENT_PROFILE_2018$`NO_TV`=='2', 3,
-                              ifelse(STUDENT_PROFILE_2018$`NO_TV`=='3+', 5,NA)))))
+                                     ifelse(STUDENT_PROFILE_2018$`NO_TV`=='0', 0,
+                                            ifelse(STUDENT_PROFILE_2018$`NO_TV`=='1', 1,
+                                                   ifelse(STUDENT_PROFILE_2018$`NO_TV`=='2', 3,
+                                                          ifelse(STUDENT_PROFILE_2018$`NO_TV`=='3+', 5,NA)))))
 
 # Transforming NO_TV variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "NO_TV"])
 
 STUDENT_PROFILE_2018$NO_CAR <- ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='-', 0,
-                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='0', 0,
-                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='1', 1,
-                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='2', 3,
-                               ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='3+', 5,NA)))))
+                                      ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='0', 0,
+                                             ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='1', 1,
+                                                    ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='2', 3,
+                                                           ifelse(STUDENT_PROFILE_2018$`NO_CAR`=='3+', 5,NA)))))
 
 unique(STUDENT_PROFILE_2018[, "NO_CAR"])
 
 STUDENT_PROFILE_2018$NO_BOOK <- ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='-', 0,
-                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='0-10', 1,
-                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='11-25', 1,
-                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='26-100', 2,
-                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='101-200', 3,
-                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='201-500', 4,
-                                ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='more than 500', 5,NA)))))))
+                                       ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='0-10', 1,
+                                              ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='11-25', 1,
+                                                     ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='26-100', 2,
+                                                            ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='101-200', 3,
+                                                                   ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='201-500', 4,
+                                                                          ifelse(STUDENT_PROFILE_2018$`NO_BOOK`=='more than 500', 5,NA)))))))
 
 # Transforming NO_BOOK variable to omit duplicates and reduce data-set
 unique(STUDENT_PROFILE_2018[, "NO_BOOK"])
@@ -209,13 +208,13 @@ unique(STUDENT_PROFILE_2018[, "NO_BOOK"])
 # Converting iso3B country code to country name
 
 STUDENT_PROFILE_2018$CNT <- ifelse(STUDENT_PROFILE_2018$`CNT`=='BRN', "Brunei",
-                            ifelse(STUDENT_PROFILE_2018$`CNT`=='IDN', "Indonesia",
-                            ifelse(STUDENT_PROFILE_2018$`CNT`=='MYS', "Malaysia",
-                            ifelse(STUDENT_PROFILE_2018$`CNT`=='PHL', "Philippines",
-                            ifelse(STUDENT_PROFILE_2018$`CNT`=='SGP', "Singapore",
-                            ifelse(STUDENT_PROFILE_2018$`CNT`=='THA', "Thailand",
-                            ifelse(STUDENT_PROFILE_2018$`CNT`=='VNM', "Vietnam",
-                            NA)))))))
+                                   ifelse(STUDENT_PROFILE_2018$`CNT`=='IDN', "Indonesia",
+                                          ifelse(STUDENT_PROFILE_2018$`CNT`=='MYS', "Malaysia",
+                                                 ifelse(STUDENT_PROFILE_2018$`CNT`=='PHL', "Philippines",
+                                                        ifelse(STUDENT_PROFILE_2018$`CNT`=='SGP', "Singapore",
+                                                               ifelse(STUDENT_PROFILE_2018$`CNT`=='THA', "Thailand",
+                                                                      ifelse(STUDENT_PROFILE_2018$`CNT`=='VNM', "Vietnam",
+                                                                             NA)))))))
 
 region <- STUDENT_PROFILE_2018$CNT
 CNT <- STUDENT_PROFILE_2018$CNT
@@ -229,27 +228,24 @@ MATH <- STUDENT_PROFILE_2018$MATH
 SCIENCE <- STUDENT_PROFILE_2018$SCIENCE
 WEALTH <- STUDENT_PROFILE_2018$WEALTH
 ESCS <- STUDENT_PROFILE_2018$ESCS
-STAFF_SHORT <- STUDENT_PROFILE_2018$STAFF_SHORT
-ST_RATIO <- STUDENT_PROFILE_2018$ST_RATIO
-GOV_FUND <- STUDENT_PROFILE_2018$GOV_FUND
 
 # K-Means Function
-kmeansFunc <- function(dataset, plotTitle = "Cluster plot"){
+kmeansFunc <- function(dataset, plotTitle = "Cluster plot", scale = FALSE){
   
   # Initializing variables
   KMEANS_DATA = dataset[3:2]
   
   # Scaling variables
-  SCALED_KMEANS_DATA = scale(KMEANS_DATA, center = TRUE, scale = TRUE)
+  SCALED_KMEANS_DATA = scale(KMEANS_DATA, center = TRUE, scale = scale)
   
   # Calculating Distance
-  KMEANS_DIST = dist(KMEANS_DATA)
+  KMEANS_DIST = dist(SCALED_KMEANS_DATA)
   
   # Applying the algorithm with k set to 3
-  km.out <- kmeans(KMEANS_DATA, centers = 3, nstart = 10)
+  km.out <- kmeans(SCALED_KMEANS_DATA, centers = 3, nstart = 10)
   print(km.out)
   km.clusters <- km.out$cluster
-  rownames(KMEANS_DATA) <- paste(dataset$CNT, 1:dim(dataset)[1], sep = '_')
+  rownames(SCALED_KMEANS_DATA) <- paste(dataset$CNT, 1:dim(dataset)[1], sep = '_')
   
   # Visualizing the Cluster
   fviz_cluster(list(data=KMEANS_DATA, cluster = km.clusters), main = plotTitle, show.clust.cent = TRUE,)
@@ -294,7 +290,7 @@ MATH_TO_MOTHER_ED = data.frame(
 )
 
 # Applying the Algorithm
-kmeansFunc(MATH_TO_MOTHER_ED, "(Mother's Educational Attainment, Math) Clusters")
+kmeansFunc(MATH_TO_FATHER_ED, "(Mother's Educational Attainment, Math) Clusters")
 
 # Clustering of (NO_COMPUTER, Math)
 MATH_TO_COMPUTERS = data.frame(
@@ -325,36 +321,6 @@ MATH_TO_BOOKS = data.frame(
 
 # Applying the Algorithm
 kmeansFunc(MATH_TO_BOOKS, "(Number of Books Read, Math) Clusters")
-
-# Clustering of (GOV_FUND, SCIENCE)
-MATH_TO_GOV_FUND = data.frame(
-  CNT,
-  GOV_FUND,
-  MATH
-)
-
-# Applying the Algorithm
-kmeansFunc(MATH_TO_GOV_FUND, "(School's Government Funding, Science) Clusters")
-
-# Clustering of (ST_RATIO, SCIENCE)
-MATH_TO_ST_RATIO = data.frame(
-  CNT,
-  ST_RATIO,
-  MATH
-)
-
-# Applying the Algorithm
-kmeansFunc(MATH_TO_ST_RATIO, "(School's Student/Teacher Ratio, Science) Clusters")
-
-# Clustering of (STAFF_SHORT, SCIENCE)
-MATH_TO_STAFF_SHORT = data.frame(
-  CNT,
-  STAFF_SHORT,
-  MATH
-)
-
-# Applying the Algorithm
-kmeansFunc(MATH_TO_STAFF_SHORT, "(School's Staff Shortage, Science) Clusters")
 
 # K-Means of Science Performance against multiple economic variables
 
@@ -428,36 +394,6 @@ SCIENCE_TO_BOOKS = data.frame(
 # Applying the Algorithm
 kmeansFunc(SCIENCE_TO_BOOKS, "(Number of Books Read, Science) Clusters")
 
-# Clustering of (GOV_FUND, SCIENCE)
-SCIENCE_TO_GOV_FUND = data.frame(
-  CNT,
-  GOV_FUND,
-  SCIENCE
-)
-
-# Applying the Algorithm
-kmeansFunc(SCIENCE_TO_GOV_FUND, "(School's Government Funding, Science) Clusters")
-
-# Clustering of (ST_RATIO, SCIENCE)
-SCIENCE_TO_ST_RATIO = data.frame(
-  CNT,
-  ST_RATIO,
-  SCIENCE
-)
-
-# Applying the Algorithm
-kmeansFunc(SCIENCE_TO_ST_RATIO, "(School's Student/Teacher Ratio, Science) Clusters")
-
-# Clustering of (STAFF_SHORT, SCIENCE)
-SCIENCE_TO_STAFF_SHORT = data.frame(
-  CNT,
-  STAFF_SHORT,
-  SCIENCE
-)
-
-# Applying the Algorithm
-kmeansFunc(SCIENCE_TO_STAFF_SHORT, "(School's Staff Shortage, Science) Clusters")
-
 # Clustering of (MATH, SCIENCE)
 MATH_TO_SCIENCE = data.frame(
   CNT,
@@ -467,7 +403,7 @@ MATH_TO_SCIENCE = data.frame(
 
 kmeansFunc(MATH_TO_SCIENCE, "(Math, Science) Clusters")
 
-# Geo-mapping Math, Science and Wealth in ASEAN Countries
+# Geo-mapping Math, Science, and Wealth in ASEAN Countries
 
 MATH_MAP = data.frame(
   region,
