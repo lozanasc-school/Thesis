@@ -233,6 +233,8 @@ STAFF_SHORT <- STUDENT_PROFILE_2018$STAFF_SHORT
 ST_RATIO <- STUDENT_PROFILE_2018$ST_RATIO
 GOV_FUND <- STUDENT_PROFILE_2018$GOV_FUND
 
+
+
 # K-Means Function
 kmeansFunc <- function(dataset, plotTitle = "Cluster plot"){
   
@@ -458,14 +460,34 @@ SCIENCE_TO_STAFF_SHORT = data.frame(
 # Applying the Algorithm
 kmeansFunc(SCIENCE_TO_STAFF_SHORT, "(School's Staff Shortage, Science) Clusters")
 
-# Clustering of (MATH, SCIENCE)
-MATH_TO_SCIENCE = data.frame(
-  CNT,
-  MATH,
-  SCIENCE
-)
+# Results
+MATH_RESULT_TABLE <-  data.frame("PERFORMANCE_GROUP" = c("Low (353.1147)", "Medium (473.7976)", "High (600.4088)"),
+                                 "STAFF_SHORTAGE" = c(0.09259918, 0.04091585, -0.20207647),
+                                 "STUDENT_TEACHER_RATION" = c(16.10399, 15.02322, 12.76654),
+                                 "GOV_FUND_SCHOOL" = c(79.75630, 70.58824, 81.96078),
+                                 "NUMBER_OF_BOOKS_READ" = c(1.565574, 2.060976, 2.196078),
+                                 "NUMBER_OF_TV" = c(2.295082, 2.646341, 2.921569),
+                                 "NUMBER_OF_COMPUTER" = c(1.172131, 2.560976, 3.058824),
+                                 "MOTHER_EDUCATION" = c(3.918033, 4.426829, 4.627451),
+                                 "FATHER_EDUCATION" = c(3.918033, 4.414634, 4.431373),
+                                 "SOCIO_ECONOMIC_STATUS" = c(-1.2344279, -0.4043317, 0.1407588),
+                                 "WEALTH" = c(-1.5912041, -0.6993146, -0.1683784)
+                                 )
+reactable(MATH_RESULT_TABLE)
 
-kmeansFunc(MATH_TO_SCIENCE, "(Math, Science) Clusters")
+SCIENCE_RESULT_TABLE <-  data.frame("PERFORMANCE_GROUP" = c("Low (345.7206)", "Medium (462.1422)", "High (605.5296)"),
+                                    "STAFF_SHORTAGE" = c(0.08887353, 0.04161759, -0.20474444),
+                                    "STUDENT_TEACHER_RATION" = c(17.40217, 14.06058, 12.31380),
+                                    "GOV_FUND_SCHOOL" = c(81.67619, 71.17925, 80.68182),
+                                    "NUMBER_OF_BOOKS_READ" = c(1.539216, 1.953704, 2.311111),
+                                    "NUMBER_OF_TV" = c(2.186275, 2.611111, 3.133333),
+                                    "NUMBER_OF_COMPUTER" = c(1.274510, 1.981481, 3.666667),
+                                    "MOTHER_EDUCATION" = c(3.980392, 4.203704, 4.822222),
+                                    "FATHER_EDUCATION" = c(3.980392, 4.212963, 4.555556),
+                                    "SOCIO_ECONOMIC_STATUS" = c(-1.1598441, -0.7199333, 0.4328933),
+                                    "WEALTH" = c(-1.5904471, -1.0097380, 0.2493178)
+                                    )
+reactable(SCIENCE_RESULT_TABLE)
 
 # Geo-mapping Math, Science and Wealth in ASEAN Countries
 
