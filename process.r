@@ -463,7 +463,7 @@ kmeansFunc(SCIENCE_TO_STAFF_SHORT, "(School's Staff Shortage, Science) Clusters"
 # Results
 MATH_RESULT_TABLE <-  data.frame("PERFORMANCE_GROUP" = c("Low (353.1147)", "Medium (473.7976)", "High (600.4088)"),
                                  "STAFF_SHORTAGE" = c(0.09259918, 0.04091585, -0.20207647),
-                                 "STUDENT_TEACHER_RATION" = c(16.10399, 15.02322, 12.76654),
+                                 "STUDENT_TEACHER_RATIO" = c(16.10399, 15.02322, 12.76654),
                                  "GOV_FUND_SCHOOL" = c(79.75630, 70.58824, 81.96078),
                                  "NUMBER_OF_BOOKS_READ" = c(1.565574, 2.060976, 2.196078),
                                  "NUMBER_OF_TV" = c(2.295082, 2.646341, 2.921569),
@@ -477,7 +477,7 @@ reactable(MATH_RESULT_TABLE)
 
 SCIENCE_RESULT_TABLE <-  data.frame("PERFORMANCE_GROUP" = c("Low (345.7206)", "Medium (462.1422)", "High (605.5296)"),
                                     "STAFF_SHORTAGE" = c(0.08887353, 0.04161759, -0.20474444),
-                                    "STUDENT_TEACHER_RATION" = c(17.40217, 14.06058, 12.31380),
+                                    "STUDENT_TEACHER_RATIO" = c(17.40217, 14.06058, 12.31380),
                                     "GOV_FUND_SCHOOL" = c(81.67619, 71.17925, 80.68182),
                                     "NUMBER_OF_BOOKS_READ" = c(1.539216, 1.953704, 2.311111),
                                     "NUMBER_OF_TV" = c(2.186275, 2.611111, 3.133333),
